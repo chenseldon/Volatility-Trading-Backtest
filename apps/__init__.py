@@ -1,1 +1,1 @@
-"""Application entry points for the volatility backtest platform."""
+"""Application entrypoints for the API and web clients."""

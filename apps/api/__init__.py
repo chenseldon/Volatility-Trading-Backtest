@@ -1,1 +1,1 @@
-"""FastAPI transport package."""
+"""FastAPI application package."""
