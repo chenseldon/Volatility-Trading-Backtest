@@ -1,16 +1,20 @@
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vitest/config'
+import { configDefaults, defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    chunkSizeWarningLimit: 1500,
+  },
   server: {
     proxy: {
-      '/api': 'http://127.0.0.1:8000',
+      '/api': 'http://127.0.0.1:9000',
     },
   },
   test: {
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
     css: true,
+    exclude: [...configDefaults.exclude, 'e2e/**'],
   },
 })
