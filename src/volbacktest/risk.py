@@ -8,6 +8,17 @@ from volbacktest.models import RiskConfig, StrategyName
 CONTRACT_MULTIPLIER = 100
 
 
+def hedge_rebalance_cost(
+    previous_shares: float,
+    target_shares: float,
+    spot: float,
+    slippage_bps: float,
+    commission_per_share: float = 0.005,
+) -> float:
+    turnover = abs(target_shares - previous_shares)
+    return turnover * (spot * slippage_bps / 10_000 + commission_per_share)
+
+
 def reg_t_margin(
     strategy: StrategyName,
     legs: Iterable[Mapping[str, float | int | str]],
@@ -47,12 +58,13 @@ def position_size(
     risk_per_contract: float,
     margin_per_contract: float,
     equity: float | None = None,
+    margin_used: float = 0.0,
 ) -> int:
     account = risk.initial_capital if equity is None else equity
     if risk_per_contract <= 0 or margin_per_contract <= 0:
         return 0
     risk_limit = account * risk.risk_per_trade
-    margin_limit = account * risk.max_margin_fraction
+    margin_limit = max(account * risk.max_margin_fraction - margin_used, 0.0)
     return max(
         min(
             math.floor(risk_limit / risk_per_contract),

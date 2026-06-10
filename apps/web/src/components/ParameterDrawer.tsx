@@ -7,7 +7,7 @@ type Props = { open: boolean; form: BacktestForm; setForm: (form: BacktestForm) 
 export function ParameterDrawer({ open, form, setForm, onClose }: Props) {
   if (!open) return null
   const numberField = (label: string, key: keyof BacktestForm, step = 1) => (
-    <label><span>{label}</span><input type="number" step={step} value={String(form[key])} onChange={(event) => setForm({ ...form, [key]: Number(event.target.value) })} /></label>
+    <label><span>{label}</span><input aria-label={label} type="number" step={step} value={String(form[key])} onChange={(event) => setForm({ ...form, [key]: Number(event.target.value) })} /></label>
   )
   return (
     <div className="drawer-backdrop" onMouseDown={onClose}>
@@ -20,4 +20,3 @@ export function ParameterDrawer({ open, form, setForm, onClose }: Props) {
     </div>
   )
 }
-

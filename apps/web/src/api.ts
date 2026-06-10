@@ -5,7 +5,7 @@ export async function runBacktest(form: BacktestForm): Promise<BacktestResult> {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      dataset: 'synthetic',
+      dataset: form.dataset,
       start_date: form.startDate,
       end_date: form.endDate,
       strategy: {
@@ -41,3 +41,17 @@ export async function runBacktest(form: BacktestForm): Promise<BacktestResult> {
   return response.json()
 }
 
+export async function uploadDataset(file: File): Promise<{
+  dataset: string
+  name: string
+  rows: number
+}> {
+  const body = new FormData()
+  body.append('file', file)
+  const response = await fetch('/api/v1/datasets/upload', { method: 'POST', body })
+  if (!response.ok) {
+    const payload = await response.json().catch(() => null)
+    throw new Error(payload?.detail?.message ?? 'Dataset upload failed')
+  }
+  return response.json()
+}

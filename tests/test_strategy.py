@@ -1,3 +1,5 @@
+import pytest
+
 from volbacktest.data import generate_synthetic_chain
 from volbacktest.models import StrategyName, StrategySpec
 from volbacktest.strategy import select_legs
@@ -26,3 +28,11 @@ def test_bull_call_spread_has_bounded_structure() -> None:
 
     assert list(legs.sort_values("strike")["quantity"]) == [1, -1]
     assert set(legs["option_type"]) == {"call"}
+
+
+def test_strategy_reports_missing_option_sides_precisely() -> None:
+    chain = generate_synthetic_chain(periods=1, seed=2)
+    calls_only = chain[chain["option_type"] == "call"]
+
+    with pytest.raises(ValueError, match="requires both call and put"):
+        select_legs(calls_only, StrategySpec(name=StrategyName.LONG_STRADDLE))

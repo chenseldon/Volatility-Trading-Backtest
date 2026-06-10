@@ -5,6 +5,8 @@ import type { BacktestResult } from '../types'
 export function DataTabs({ result }: { result: BacktestResult }) {
   const [tab, setTab] = useState('Positions')
   const tabs = ['Positions', 'Trades', 'Comparison', 'Assumptions']
+  const sourceLabel =
+    result.data_source === 'synthetic' ? 'Synthetic option-chain data' : 'Imported option-chain CSV'
   return (
     <section className="data-panel">
       <div className="tabs">{tabs.map((name) => <button className={tab === name ? 'active' : ''} onClick={() => setTab(name)} key={name}>{name}</button>)}</div>
@@ -15,8 +17,7 @@ export function DataTabs({ result }: { result: BacktestResult }) {
         {result.trades.slice(-8).reverse().map((trade, index) => <tr key={`${trade.date}-${index}`}><td>{trade.date}</td><td>{trade.event.toUpperCase()}</td><td>{trade.strategy.replaceAll('_', ' ')}</td><td>{trade.reason ?? trade.signal}</td><td className={trade.pnl >= 0 ? 'positive' : 'negative'}>{trade.pnl.toFixed(2)}</td></tr>)}
       </tbody></table>}
       {tab === 'Comparison' && <div className="text-panel"><strong>Parameter comparison</strong><p>Use the sweep API to rank holding periods and signal thresholds by Sharpe ratio.</p></div>}
-      {tab === 'Assumptions' && <div className="text-panel"><strong>Synthetic option-chain data</strong><p>Black-Scholes proxy, no early exercise, bid/ask execution, Reg-T style margin, and explicit commissions/slippage.</p>{result.warnings.map((warning) => <p key={warning}>{warning}</p>)}</div>}
+      {tab === 'Assumptions' && <div className="text-panel"><strong>{sourceLabel}</strong><p>Black-Scholes proxy, no early exercise, bid/ask execution, Reg-T style margin, and explicit commissions/slippage.</p>{result.warnings.map((warning) => <p key={warning}>{warning}</p>)}</div>}
     </section>
   )
 }
-

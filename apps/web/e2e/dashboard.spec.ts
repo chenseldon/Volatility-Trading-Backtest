@@ -15,7 +15,7 @@ test('loads the command center and opens parameters', async ({ page }, testInfo)
   }
   await expect(page.getByText('Risk & Exposure')).toBeVisible()
   await expect(page.locator('.panel-title').filter({ hasText: 'Equity Curve' })).toBeVisible()
-  await expect(page.getByText('Loading analytics…')).toHaveCount(0)
+  await expect(page.getByText('Loading analytics...')).toHaveCount(0)
   await page.waitForTimeout(700)
   await page.screenshot({
     path: testInfo.outputPath(`command-center-overview-${testInfo.project.name}.png`),
@@ -36,4 +36,18 @@ test('runs a real API backtest and updates the dashboard', async ({ page }) => {
   await page.getByRole('button', { name: 'Run Backtest' }).click()
   await expect(page.getByText('Completed')).toBeVisible({ timeout: 45_000 })
   await expect(page.getByText('Ready')).toHaveCount(0)
+})
+
+test('uploads a CSV dataset through the command bar', async ({ page }) => {
+  await page.goto('/')
+  await page.getByLabel('Upload option-chain CSV').setInputFiles({
+    name: 'edge-chain.csv',
+    mimeType: 'text/csv',
+    buffer: Buffer.from(
+      'date,expiry,option_type,strike,bid,ask,implied_volatility,underlying_price\n' +
+        '2025-01-02,2025-02-21,call,100,4.0,4.2,0.2,100\n',
+    ),
+  })
+
+  await expect(page.getByText('Imported CSV: edge-chain.csv (1 rows)')).toBeVisible()
 })

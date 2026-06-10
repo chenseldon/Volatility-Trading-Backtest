@@ -66,6 +66,11 @@ def _plot_series(
 
 def _markdown_report(result: BacktestResult) -> str:
     metrics = result.metrics
+    data_note = (
+        "Bundled examples use synthetic option-chain data."
+        if result.data_source == "synthetic"
+        else "This run uses an imported option-chain CSV; source quality is user-controlled."
+    )
     return f"""# Volatility Strategy Backtest Report
 
 **Run ID:** `{result.run_id}`  
@@ -80,12 +85,13 @@ def _markdown_report(result: BacktestResult) -> str:
 | Sharpe ratio | {metrics["sharpe_ratio"]:.2f} |
 | Maximum drawdown | {metrics["max_drawdown"]:.2%} |
 | Win rate | {metrics["win_rate"]:.2%} |
+| Payoff ratio | {metrics["payoff_ratio"]:.2f} |
 | Profit factor | {metrics["profit_factor"]:.2f} |
 | Closed trades | {int(metrics["trade_count"])} |
 
 ## Assumptions and limitations
 
-- Bundled examples use synthetic option-chain data.
+- {data_note}
 - SPY options are American-style; this model uses Black-Scholes and does not model
   early exercise.
 - Short-option margin is a disclosed Reg-T style approximation, not a broker quote.
@@ -93,4 +99,3 @@ def _markdown_report(result: BacktestResult) -> str:
 - Delta hedging reduces first-order directional exposure; it does not remove gamma,
   vega, gap, liquidity, or model risk.
 """
-

@@ -46,10 +46,21 @@ export type BacktestResult = {
   trades: Trade[]
   legs: Record<string, unknown>[]
   warnings: string[]
-  config: Record<string, unknown>
+  config: {
+    risk?: {
+      initial_capital?: number
+      stop_loss?: number
+      profit_target?: number
+    }
+    signal?: {
+      exit_low?: number
+      exit_high?: number
+    }
+  }
 }
 
 export type BacktestForm = {
+  dataset: string
   startDate: string
   endDate: string
   strategy: string
@@ -66,4 +77,3 @@ export type BacktestForm = {
   commission: number
   slippageBps: number
 }
-

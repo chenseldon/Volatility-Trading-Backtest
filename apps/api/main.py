@@ -51,13 +51,35 @@ def create_app(service: BacktestService | None = None) -> FastAPI:
             ) from exc
         return {"valid": True, "rows": len(validated), "columns": list(validated.columns)}
 
+    @app.post("/api/v1/datasets/upload")
+    async def upload_dataset(file: UploadFile = UPLOAD_FILE) -> dict[str, Any]:
+        try:
+            return engine.save_dataset(file.filename or "option-chain.csv", await file.read())
+        except (DataValidationError, ValueError) as exc:
+            raise HTTPException(
+                status_code=422,
+                detail={"code": "invalid_option_chain", "message": str(exc)},
+            ) from exc
+
     @app.post("/api/v1/backtests")
     def run_backtest(config: BacktestConfig) -> dict[str, Any]:
-        return engine.run(config).model_dump(mode="json")
+        try:
+            return engine.run(config).model_dump(mode="json")
+        except (DataValidationError, FileNotFoundError, ValueError) as exc:
+            raise HTTPException(
+                status_code=422,
+                detail={"code": "backtest_failed", "message": str(exc)},
+            ) from exc
 
     @app.post("/api/v1/sweeps")
     def run_sweep(request: SweepRequest) -> list[dict[str, Any]]:
-        return engine.sweep(request.config, request.parameter_grid)
+        try:
+            return engine.sweep(request.config, request.parameter_grid)
+        except (DataValidationError, FileNotFoundError, ValueError) as exc:
+            raise HTTPException(
+                status_code=422,
+                detail={"code": "sweep_failed", "message": str(exc)},
+            ) from exc
 
     @app.get("/api/v1/backtests")
     def list_backtests() -> list[dict[str, Any]]:

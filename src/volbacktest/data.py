@@ -3,7 +3,6 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from volbacktest.models import OptionQuote
 from volbacktest.pricing import black_scholes
 
 REQUIRED_COLUMNS = {
@@ -30,17 +29,60 @@ def validate_option_chain(frame: pd.DataFrame) -> pd.DataFrame:
     validated = frame.copy()
     validated["date"] = pd.to_datetime(validated["date"]).dt.normalize()
     validated["expiry"] = pd.to_datetime(validated["expiry"]).dt.normalize()
-    errors: list[str] = []
-    for index, row in validated.iterrows():
-        try:
-            OptionQuote(**row[sorted(REQUIRED_COLUMNS)].to_dict())
-        except ValueError as exc:
-            errors.append(f"row {index}: {exc}")
-    if errors:
-        message = "; ".join(errors)
-        if "bid cannot exceed ask" in message:
-            raise DataValidationError("bid cannot exceed ask")
-        raise DataValidationError(message)
+    numeric_columns = [
+        "strike",
+        "bid",
+        "ask",
+        "implied_volatility",
+        "underlying_price",
+    ]
+    for column in numeric_columns:
+        validated[column] = pd.to_numeric(validated[column], errors="coerce")
+    if (
+        validated[numeric_columns].isna().any(axis=None)
+        or not np.isfinite(validated[numeric_columns].to_numpy()).all()
+    ):
+        raise DataValidationError("numeric quote fields must contain valid numbers")
+    if (~validated["option_type"].isin(["call", "put"])).any():
+        raise DataValidationError("option_type must be call or put")
+    if (validated["expiry"] <= validated["date"]).any():
+        raise DataValidationError("expiry must be after date")
+    if (validated["bid"] > validated["ask"]).any():
+        raise DataValidationError("bid cannot exceed ask")
+    if (
+        (validated["strike"] <= 0).any()
+        or (validated["bid"] < 0).any()
+        or (validated["ask"] <= 0).any()
+        or (validated["underlying_price"] <= 0).any()
+        or (validated["implied_volatility"] <= 0).any()
+        or (validated["implied_volatility"] > 5).any()
+    ):
+        raise DataValidationError("quote values are outside the supported range")
+    for column in ("delta", "gamma", "vega", "theta"):
+        if column not in validated:
+            validated[column] = np.nan
+        else:
+            validated[column] = pd.to_numeric(validated[column], errors="coerce")
+    missing_greeks = validated[["delta", "gamma", "vega", "theta"]].isna().any(axis=1)
+    for index, row in validated.loc[missing_greeks].iterrows():
+        tte = max((row["expiry"] - row["date"]).days, 1) / 365
+        risk_free_rate = row.get("risk_free_rate", 0.03)
+        dividend_yield = row.get("dividend_yield", 0.012)
+        greeks = black_scholes(
+            float(row["underlying_price"]),
+            float(row["strike"]),
+            tte,
+            float(risk_free_rate) if pd.notna(risk_free_rate) else 0.03,
+            float(dividend_yield) if pd.notna(dividend_yield) else 0.012,
+            float(row["implied_volatility"]),
+            str(row["option_type"]),
+        )
+        validated.loc[index, ["delta", "gamma", "vega", "theta"]] = [
+            greeks.delta,
+            greeks.gamma,
+            greeks.vega,
+            greeks.theta,
+        ]
     return validated.sort_values(["date", "expiry", "strike", "option_type"]).reset_index(drop=True)
 
 

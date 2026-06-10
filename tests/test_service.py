@@ -27,3 +27,11 @@ def test_service_persists_result_and_report_artifacts(tmp_path: Path) -> None:
     assert service.get(result.run_id).metrics == result.metrics
     assert service.list_runs()[0]["run_id"] == result.run_id
 
+    sweep = service.sweep(
+        config,
+        {"strategy.max_holding_days": [5, 10]},
+        chain=chain,
+    )
+    assert len(sweep) == 2
+    assert (tmp_path / "latest-sweep.json").exists()
+    assert (tmp_path / "latest-sweep.csv").exists()

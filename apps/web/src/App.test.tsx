@@ -63,4 +63,42 @@ describe('App', () => {
       expect.objectContaining({ method: 'POST' }),
     )
   })
+
+  it('uploads an option-chain CSV and selects it for the next run', async () => {
+    const user = userEvent.setup()
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        dataset: 'upload:abc123',
+        name: 'chain.csv',
+        rows: 120,
+      }),
+    } as Response)
+
+    render(<App />)
+    const file = new File(['date,expiry\n'], 'chain.csv', { type: 'text/csv' })
+    await user.upload(screen.getByLabelText('Upload option-chain CSV'), file)
+
+    expect(await screen.findByText('Imported CSV: chain.csv (120 rows)')).toBeInTheDocument()
+    expect(fetch).toHaveBeenCalledWith(
+      '/api/v1/datasets/upload',
+      expect.objectContaining({ method: 'POST', body: expect.any(FormData) }),
+    )
+  })
+
+  it('rejects invalid signal thresholds before calling the API', async () => {
+    const user = userEvent.setup()
+    const request = vi.spyOn(globalThis, 'fetch')
+
+    render(<App />)
+    await user.click(screen.getByRole('button', { name: 'Parameters' }))
+    await user.clear(screen.getByLabelText('High IV percentile'))
+    await user.type(screen.getByLabelText('High IV percentile'), '10')
+    await user.click(screen.getByRole('button', { name: 'Run Backtest' }))
+
+    expect(
+      screen.getByText('Low IV percentile must be below high IV percentile'),
+    ).toBeInTheDocument()
+    expect(request).not.toHaveBeenCalled()
+  })
 })

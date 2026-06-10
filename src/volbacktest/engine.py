@@ -11,7 +11,7 @@ from volbacktest.factors import compute_volatility_factors
 from volbacktest.models import BacktestConfig, BacktestResult, StrategyName
 from volbacktest.performance import calculate_performance
 from volbacktest.pricing import black_scholes
-from volbacktest.risk import position_size, reg_t_margin
+from volbacktest.risk import hedge_rebalance_cost, position_size, reg_t_margin
 from volbacktest.strategy import select_legs
 
 CONTRACT_MULTIPLIER = 100
@@ -29,6 +29,7 @@ class Position:
     margin: float
     hedge_shares: float = 0.0
     hedge_pnl: float = 0.0
+    hedge_cost: float = 0.0
     previous_spot: float = 0.0
 
 
@@ -54,11 +55,14 @@ def _signal(row: pd.Series, config: BacktestConfig) -> str:
 def _strategy_accepts_signal(name: StrategyName, signal: str) -> bool:
     if name in {StrategyName.SHORT_STRADDLE, StrategyName.SHORT_STRANGLE}:
         return signal == "short_vol"
-    if name in {StrategyName.LONG_STRADDLE, StrategyName.LONG_STRANGLE}:
+    if name in {
+        StrategyName.LONG_STRADDLE,
+        StrategyName.LONG_STRANGLE,
+        StrategyName.BULL_CALL_SPREAD,
+        StrategyName.BEAR_PUT_SPREAD,
+    }:
         return signal == "long_vol"
-    if name == StrategyName.BULL_CALL_SPREAD:
-        return signal == "long_vol"
-    return signal == "short_vol"
+    return False
 
 
 def _execution_price(row: pd.Series, quantity: int, opening: bool, slippage_bps: float) -> float:
@@ -102,6 +106,8 @@ def _open_position(
     config: BacktestConfig,
     signal_date: pd.Timestamp,
     signal: str,
+    equity: float,
+    margin_used: float,
 ) -> tuple[Position | None, list[dict[str, Any]]]:
     legs = select_legs(day_chain, config.strategy)
     per_contract: list[dict[str, Any]] = []
@@ -116,6 +122,10 @@ def _open_position(
                 "quantity": quantity,
                 "entry_price": price,
                 "price": price,
+                "entry_delta": float(leg["delta"]),
+                "entry_gamma": float(leg["gamma"]),
+                "entry_vega": float(leg["vega"]),
+                "entry_theta": float(leg["theta"]),
             }
         )
     spot = float(day_chain["underlying_price"].iloc[0])
@@ -131,7 +141,13 @@ def _open_position(
         risk_per_contract = margin_per_contract * 0.25
     else:
         risk_per_contract = max(abs(entry_cashflow_per_contract), margin_per_contract)
-    contracts = position_size(config.risk, risk_per_contract, margin_per_contract)
+    contracts = position_size(
+        config.risk,
+        risk_per_contract,
+        margin_per_contract,
+        equity=equity,
+        margin_used=margin_used,
+    )
     if contracts == 0:
         return None, []
 
@@ -176,7 +192,7 @@ def _mark_position(
         exit_cashflow += quantity * price * CONTRACT_MULTIPLIER
         delta += quantity * float(quote["delta"]) * CONTRACT_MULTIPLIER
         vega += quantity * float(quote["vega"]) * CONTRACT_MULTIPLIER
-    pnl = position.entry_cashflow + exit_cashflow + position.hedge_pnl
+    pnl = position.entry_cashflow + exit_cashflow + position.hedge_pnl - position.hedge_cost
     return pnl, delta, vega, exit_cashflow, quotes
 
 
@@ -241,7 +257,7 @@ def run_backtest(chain: pd.DataFrame, config: BacktestConfig) -> BacktestResult:
 
     capital = config.risk.initial_capital
     realized_pnl = 0.0
-    position: Position | None = None
+    positions: list[Position] = []
     trades: list[dict[str, Any]] = []
     leg_records: list[dict[str, Any]] = []
     equity_records: list[dict[str, Any]] = []
@@ -254,23 +270,38 @@ def run_backtest(chain: pd.DataFrame, config: BacktestConfig) -> BacktestResult:
         factor = factor_by_date.loc[day]
         spot = float(day_chain["underlying_price"].iloc[0])
 
-        if position is not None and config.strategy.delta_hedge:
-            position.hedge_pnl += position.hedge_shares * (spot - position.previous_spot)
-            position.previous_spot = spot
+        if config.strategy.delta_hedge:
+            for position in positions:
+                position.hedge_pnl += position.hedge_shares * (
+                    spot - position.previous_spot
+                )
+                position.previous_spot = spot
 
         unrealized = 0.0
         delta = 0.0
         vega = 0.0
-        exit_cashflow = 0.0
-        if position is not None:
-            unrealized, delta, vega, exit_cashflow, _ = _mark_position(position, day_chain, config)
-            reason = _should_exit(position, day, unrealized, factor, config)
+        remaining_positions: list[Position] = []
+        for position in positions:
+            position_pnl, position_delta, position_vega, _, _ = _mark_position(
+                position, day_chain, config
+            )
+            reason = _should_exit(position, day, position_pnl, factor, config)
             if reason:
+                if config.strategy.delta_hedge:
+                    position.hedge_cost += hedge_rebalance_cost(
+                        position.hedge_shares,
+                        0,
+                        spot,
+                        config.risk.slippage_bps,
+                    )
+                    position_pnl, _, _, _, _ = _mark_position(
+                        position, day_chain, config
+                    )
                 close_commission = (
                     position.legs["quantity"].abs().sum()
                     * config.risk.commission_per_contract
                 )
-                pnl = unrealized - close_commission
+                pnl = position_pnl - close_commission
                 realized_pnl += pnl
                 trades.append(
                     {
@@ -282,19 +313,57 @@ def run_backtest(chain: pd.DataFrame, config: BacktestConfig) -> BacktestResult:
                         "signal_date": position.signal_date.date().isoformat(),
                     }
                 )
-                position = None
-                unrealized = 0.0
-                delta = 0.0
-                vega = 0.0
+                continue
+            remaining_positions.append(position)
+            unrealized += position_pnl
+            delta += position_delta
+            vega += position_vega
+        positions = remaining_positions
 
-        if position is None and index > 0:
+        if index > 0:
             signal_row = factors.iloc[index - 1]
             signal = str(signal_row["signal"])
             if _strategy_accepts_signal(config.strategy.name, signal):
                 signal_date = pd.Timestamp(signal_row["date"])
-                opened, opened_legs = _open_position(day_chain, config, signal_date, signal)
+                opened = None
+                opened_legs: list[dict[str, Any]] = []
+                if len(positions) >= config.risk.max_positions:
+                    trades.append(
+                        {
+                            "date": day.date().isoformat(),
+                            "event": "limit",
+                            "strategy": config.strategy.name.value,
+                            "reason": "max_positions",
+                            "signal": signal,
+                            "signal_date": signal_date.date().isoformat(),
+                            "pnl": 0.0,
+                        }
+                    )
+                else:
+                    current_equity = capital + realized_pnl + unrealized
+                    margin_used = sum(position.margin for position in positions)
+                    opened, opened_legs = _open_position(
+                        day_chain,
+                        config,
+                        signal_date,
+                        signal,
+                        current_equity,
+                        margin_used,
+                    )
+                    if opened is None:
+                        trades.append(
+                            {
+                                "date": day.date().isoformat(),
+                                "event": "limit",
+                                "strategy": config.strategy.name.value,
+                                "reason": "risk_or_margin_limit",
+                                "signal": signal,
+                                "signal_date": signal_date.date().isoformat(),
+                                "pnl": 0.0,
+                            }
+                        )
                 if opened is not None:
-                    position = opened
+                    positions.append(opened)
                     trade_index = len(trades)
                     for leg in opened_legs:
                         leg_records.append({"trade_index": trade_index, **leg})
@@ -308,12 +377,33 @@ def run_backtest(chain: pd.DataFrame, config: BacktestConfig) -> BacktestResult:
                             "pnl": 0.0,
                         }
                     )
-                    unrealized, delta, vega, exit_cashflow, _ = _mark_position(
-                        position, day_chain, config
+                    opened_pnl, opened_delta, opened_vega, _, _ = _mark_position(
+                        opened, day_chain, config
                     )
+                    unrealized += opened_pnl
+                    delta += opened_delta
+                    vega += opened_vega
 
-        if position is not None and config.strategy.delta_hedge:
-            position.hedge_shares = -delta
+        if positions and config.strategy.delta_hedge:
+            unrealized = 0.0
+            vega = 0.0
+            for position in positions:
+                position_pnl, position_delta, position_vega, _, _ = _mark_position(
+                    position, day_chain, config
+                )
+                target_shares = -position_delta
+                position.hedge_cost += hedge_rebalance_cost(
+                    position.hedge_shares,
+                    target_shares,
+                    spot,
+                    config.risk.slippage_bps,
+                )
+                position.hedge_shares = target_shares
+                position_pnl, _, position_vega, _, _ = _mark_position(
+                    position, day_chain, config
+                )
+                unrealized += position_pnl
+                vega += position_vega
             net_delta = 0.0
         else:
             net_delta = delta
@@ -325,8 +415,8 @@ def run_backtest(chain: pd.DataFrame, config: BacktestConfig) -> BacktestResult:
                 "date": day.date().isoformat(),
                 "delta": net_delta,
                 "vega": vega,
-                "margin_used": position.margin if position is not None else 0.0,
-                "open_positions": int(position is not None),
+                "margin_used": sum(position.margin for position in positions),
+                "open_positions": len(positions),
             }
         )
 
@@ -340,8 +430,13 @@ def run_backtest(chain: pd.DataFrame, config: BacktestConfig) -> BacktestResult:
     for record, drawdown in zip(equity_records, equity_series / peak - 1, strict=True):
         record["drawdown"] = float(drawdown)
 
+    data_warning = (
+        "Synthetic option-chain data; results are not live trading performance."
+        if config.dataset == "synthetic"
+        else "Imported option-chain CSV; data quality and survivorship are user-controlled."
+    )
     warnings = [
-        "Synthetic option-chain data; results are not live trading performance.",
+        data_warning,
         "Black-Scholes approximation does not model American early exercise.",
     ]
     return BacktestResult(

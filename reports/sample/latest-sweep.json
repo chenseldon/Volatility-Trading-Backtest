@@ -1,0 +1,146 @@
+[
+  {
+    "run_id": "9bd514b2bad7",
+    "parameters": {
+      "strategy.max_holding_days": 15,
+      "signal.high_percentile": 80
+    },
+    "annualized_return": 0.03574401027960494,
+    "max_drawdown": -0.00463126751345444,
+    "sharpe_ratio": 1.8395444051834606,
+    "annualized_volatility": 0.01919222545420553,
+    "win_rate": 0.9230769230769231,
+    "payoff_ratio": 0.9149638536097514,
+    "profit_factor": 10.979566243317016,
+    "trade_count": 13.0,
+    "rank": 1
+  },
+  {
+    "run_id": "63bab7cb7f3f",
+    "parameters": {
+      "strategy.max_holding_days": 10,
+      "signal.high_percentile": 80
+    },
+    "annualized_return": 0.03128310682644875,
+    "max_drawdown": -0.004655982885048093,
+    "sharpe_ratio": 1.5669474434104789,
+    "annualized_volatility": 0.019783395047847683,
+    "win_rate": 0.7777777777777778,
+    "payoff_ratio": 2.1900942403876096,
+    "profit_factor": 7.665329841356633,
+    "trade_count": 18.0,
+    "rank": 2
+  },
+  {
+    "run_id": "af32ea5be81d",
+    "parameters": {
+      "strategy.max_holding_days": 15,
+      "signal.high_percentile": 60
+    },
+    "annualized_return": 0.03060777543946447,
+    "max_drawdown": -0.0076516210777352045,
+    "sharpe_ratio": 1.3493743348873253,
+    "annualized_volatility": 0.022530559518143273,
+    "win_rate": 0.8125,
+    "payoff_ratio": 0.9731254383942092,
+    "profit_factor": 4.2168768997082395,
+    "trade_count": 16.0,
+    "rank": 3
+  },
+  {
+    "run_id": "6a4a24744c98",
+    "parameters": {
+      "strategy.max_holding_days": 15,
+      "signal.high_percentile": 70
+    },
+    "annualized_return": 0.028458577645639194,
+    "max_drawdown": -0.0076516210777352045,
+    "sharpe_ratio": 1.2911571739010312,
+    "annualized_volatility": 0.021919021602201397,
+    "win_rate": 0.8,
+    "payoff_ratio": 0.9981360133522067,
+    "profit_factor": 3.9925440534088272,
+    "trade_count": 15.0,
+    "rank": 4
+  },
+  {
+    "run_id": "0a1671f851d2",
+    "parameters": {
+      "strategy.max_holding_days": 5,
+      "signal.high_percentile": 80
+    },
+    "annualized_return": 0.01953867243030394,
+    "max_drawdown": -0.004205293680676014,
+    "sharpe_ratio": 1.251348484145868,
+    "annualized_volatility": 0.015559986030881672,
+    "win_rate": 0.7619047619047619,
+    "payoff_ratio": 0.9381732198394749,
+    "profit_factor": 3.0021543034863196,
+    "trade_count": 21.0,
+    "rank": 5
+  },
+  {
+    "run_id": "26776e3e3f6b",
+    "parameters": {
+      "strategy.max_holding_days": 10,
+      "signal.high_percentile": 60
+    },
+    "annualized_return": 0.027058162496863547,
+    "max_drawdown": -0.007649388268271218,
+    "sharpe_ratio": 1.2224312093324425,
+    "annualized_volatility": 0.022038644310301454,
+    "win_rate": 0.7,
+    "payoff_ratio": 1.5204037313201617,
+    "profit_factor": 3.5476087064137105,
+    "trade_count": 20.0,
+    "rank": 6
+  },
+  {
+    "run_id": "8994b77a29ef",
+    "parameters": {
+      "strategy.max_holding_days": 10,
+      "signal.high_percentile": 70
+    },
+    "annualized_return": 0.027058162496863547,
+    "max_drawdown": -0.007649388268271218,
+    "sharpe_ratio": 1.2224312093324425,
+    "annualized_volatility": 0.022038644310301454,
+    "win_rate": 0.7,
+    "payoff_ratio": 1.5204037313201617,
+    "profit_factor": 3.5476087064137105,
+    "trade_count": 20.0,
+    "rank": 7
+  },
+  {
+    "run_id": "a9558e46332a",
+    "parameters": {
+      "strategy.max_holding_days": 5,
+      "signal.high_percentile": 60
+    },
+    "annualized_return": 0.013215056636558309,
+    "max_drawdown": -0.007940887252286699,
+    "sharpe_ratio": 0.7080944727871618,
+    "annualized_volatility": 0.018788266480177233,
+    "win_rate": 0.6785714285714286,
+    "payoff_ratio": 0.8071956482137941,
+    "profit_factor": 1.7040797017846763,
+    "trade_count": 28.0,
+    "rank": 8
+  },
+  {
+    "run_id": "3516ca145cca",
+    "parameters": {
+      "strategy.max_holding_days": 5,
+      "signal.high_percentile": 70
+    },
+    "annualized_return": 0.009591956573816285,
+    "max_drawdown": -0.007940887252286699,
+    "sharpe_ratio": 0.5561420191815842,
+    "annualized_volatility": 0.017436562660329547,
+    "win_rate": 0.6538461538461539,
+    "payoff_ratio": 0.8002047702196449,
+    "profit_factor": 1.5114978993037735,
+    "trade_count": 26.0,
+    "rank": 9
+  }
+]

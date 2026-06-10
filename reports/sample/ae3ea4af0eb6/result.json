@@ -1,0 +1,3809 @@
+{
+  "run_id": "ae3ea4af0eb6",
+  "status": "completed",
+  "data_source": "synthetic",
+  "config": {
+    "dataset": "synthetic",
+    "start_date": "2024-01-02",
+    "end_date": "2024-06-30",
+    "seed": 42,
+    "strategy": {
+      "name": "short_strangle",
+      "target_dte": 30,
+      "min_exit_dte": 5,
+      "max_holding_days": 10,
+      "delta_hedge": true
+    },
+    "signal": {
+      "low_percentile": 40.0,
+      "high_percentile": 60.0,
+      "zscore_threshold": 0.0,
+      "exit_low": 40.0,
+      "exit_high": 60.0
+    },
+    "risk": {
+      "initial_capital": 250000.0,
+      "risk_per_trade": 0.02,
+      "max_margin_fraction": 0.4,
+      "max_positions": 5,
+      "stop_loss": 0.2,
+      "profit_target": 0.25,
+      "commission_per_contract": 0.65,
+      "slippage_bps": 1.0
+    }
+  },
+  "metrics": {
+    "annualized_return": 0.027058162496863547,
+    "max_drawdown": -0.007649388268271218,
+    "sharpe_ratio": 1.2224312093324425,
+    "annualized_volatility": 0.022038644310301454,
+    "win_rate": 0.7,
+    "payoff_ratio": 1.5204037313201617,
+    "profit_factor": 3.5476087064137105,
+    "trade_count": 20.0
+  },
+  "equity_curve": [
+    {
+      "date": "2024-01-02",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-03",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-04",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-05",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-08",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-09",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-10",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-11",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-12",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-15",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-16",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-17",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-18",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-19",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-22",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-23",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-24",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-25",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-26",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-29",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-30",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-01-31",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-01",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-02",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-05",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-06",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-07",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-08",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-09",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-12",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-13",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-14",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-15",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-16",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-19",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-20",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-21",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-22",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-23",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-26",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-27",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-28",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-02-29",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-01",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-04",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-05",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-06",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-07",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-08",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-11",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-12",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-13",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-14",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-15",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-18",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-19",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-20",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-21",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-22",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-25",
+      "equity": 250000.0,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-03-26",
+      "equity": 249942.60765919284,
+      "drawdown": -0.0002295693632285989
+    },
+    {
+      "date": "2024-03-27",
+      "equity": 249934.89184811444,
+      "drawdown": -0.0002604326075422714
+    },
+    {
+      "date": "2024-03-28",
+      "equity": 249468.42539076335,
+      "drawdown": -0.002126298436946561
+    },
+    {
+      "date": "2024-03-29",
+      "equity": 249804.03622152467,
+      "drawdown": -0.0007838551139013328
+    },
+    {
+      "date": "2024-04-01",
+      "equity": 249565.95549655508,
+      "drawdown": -0.0017361780137796767
+    },
+    {
+      "date": "2024-04-02",
+      "equity": 249321.71002321015,
+      "drawdown": -0.002713159907159368
+    },
+    {
+      "date": "2024-04-03",
+      "equity": 249419.63633809824,
+      "drawdown": -0.002321454647607024
+    },
+    {
+      "date": "2024-04-04",
+      "equity": 249370.13935439775,
+      "drawdown": -0.0025194425824089928
+    },
+    {
+      "date": "2024-04-05",
+      "equity": 249197.7151758461,
+      "drawdown": -0.003209139296615593
+    },
+    {
+      "date": "2024-04-08",
+      "equity": 250510.00559698674,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-09",
+      "equity": 250635.11303100857,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-10",
+      "equity": 250219.28052523118,
+      "drawdown": -0.0016591151205774812
+    },
+    {
+      "date": "2024-04-11",
+      "equity": 250434.33895982406,
+      "drawdown": -0.0008010612270423767
+    },
+    {
+      "date": "2024-04-12",
+      "equity": 249748.96495521168,
+      "drawdown": -0.0035356102546064694
+    },
+    {
+      "date": "2024-04-15",
+      "equity": 251195.4369101427,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-16",
+      "equity": 252195.8446318281,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-17",
+      "equity": 252758.01863495386,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-18",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-19",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-22",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-23",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-24",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-25",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-26",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-29",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-04-30",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-01",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-02",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-03",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-06",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-07",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-08",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-09",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-10",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-13",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-14",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-15",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-16",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-17",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-20",
+      "equity": 253009.57264635465,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-21",
+      "equity": 252935.50545270776,
+      "drawdown": -0.0002927446296683289
+    },
+    {
+      "date": "2024-05-22",
+      "equity": 253187.74814055333,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-23",
+      "equity": 253020.85827067308,
+      "drawdown": -0.0006591546040671803
+    },
+    {
+      "date": "2024-05-24",
+      "equity": 253168.37700197808,
+      "drawdown": -7.650898875444234e-05
+    },
+    {
+      "date": "2024-05-27",
+      "equity": 253442.06639478667,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-05-28",
+      "equity": 252460.48490828704,
+      "drawdown": -0.003873001433671308
+    },
+    {
+      "date": "2024-05-29",
+      "equity": 251503.38962541998,
+      "drawdown": -0.007649388268271218
+    },
+    {
+      "date": "2024-05-30",
+      "equity": 251704.994031938,
+      "drawdown": -0.006853922821726144
+    },
+    {
+      "date": "2024-05-31",
+      "equity": 252135.1795074931,
+      "drawdown": -0.005156550788446568
+    },
+    {
+      "date": "2024-06-03",
+      "equity": 252912.80684658128,
+      "drawdown": -0.0020882861149852383
+    },
+    {
+      "date": "2024-06-04",
+      "equity": 251563.35851918027,
+      "drawdown": -0.007412770509375277
+    },
+    {
+      "date": "2024-06-05",
+      "equity": 252706.4053828433,
+      "drawdown": -0.0029026791897972526
+    },
+    {
+      "date": "2024-06-06",
+      "equity": 251853.5210571005,
+      "drawdown": -0.006267883466557933
+    },
+    {
+      "date": "2024-06-07",
+      "equity": 252025.0355664714,
+      "drawdown": -0.005591142971932528
+    },
+    {
+      "date": "2024-06-10",
+      "equity": 252890.84099128144,
+      "drawdown": -0.002174956238900738
+    },
+    {
+      "date": "2024-06-11",
+      "equity": 254083.15151953552,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-06-12",
+      "equity": 254089.8859045699,
+      "drawdown": 0.0
+    },
+    {
+      "date": "2024-06-13",
+      "equity": 253769.01834497455,
+      "drawdown": -0.0012628112230955724
+    },
+    {
+      "date": "2024-06-14",
+      "equity": 253413.38613235197,
+      "drawdown": -0.0026624427407236917
+    },
+    {
+      "date": "2024-06-17",
+      "equity": 253413.38613235197,
+      "drawdown": -0.0026624427407236917
+    },
+    {
+      "date": "2024-06-18",
+      "equity": 253413.38613235197,
+      "drawdown": -0.0026624427407236917
+    },
+    {
+      "date": "2024-06-19",
+      "equity": 253413.38613235197,
+      "drawdown": -0.0026624427407236917
+    },
+    {
+      "date": "2024-06-20",
+      "equity": 253413.38613235197,
+      "drawdown": -0.0026624427407236917
+    },
+    {
+      "date": "2024-06-21",
+      "equity": 253413.38613235197,
+      "drawdown": -0.0026624427407236917
+    },
+    {
+      "date": "2024-06-24",
+      "equity": 253413.38613235197,
+      "drawdown": -0.0026624427407236917
+    },
+    {
+      "date": "2024-06-25",
+      "equity": 253413.38613235197,
+      "drawdown": -0.0026624427407236917
+    },
+    {
+      "date": "2024-06-26",
+      "equity": 253413.38613235197,
+      "drawdown": -0.0026624427407236917
+    },
+    {
+      "date": "2024-06-27",
+      "equity": 253413.38613235197,
+      "drawdown": -0.0026624427407236917
+    },
+    {
+      "date": "2024-06-28",
+      "equity": 253413.38613235197,
+      "drawdown": -0.0026624427407236917
+    }
+  ],
+  "factors": [
+    {
+      "date": "2024-01-02",
+      "underlying_price": 320.0,
+      "implied_volatility": 0.2292782786588018,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-03",
+      "underlying_price": 317.57355312879645,
+      "implied_volatility": 0.22966141304884574,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-04",
+      "underlying_price": 313.0024491164291,
+      "implied_volatility": 0.20622491251174677,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-05",
+      "underlying_price": 312.3331622675365,
+      "implied_volatility": 0.2027773814333842,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-08",
+      "underlying_price": 314.49496601795806,
+      "implied_volatility": 0.2061615497844883,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-09",
+      "underlying_price": 317.26557916285725,
+      "implied_volatility": 0.20817780248228243,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-10",
+      "underlying_price": 318.2307365168982,
+      "implied_volatility": 0.18972363967681605,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-11",
+      "underlying_price": 318.1901950994391,
+      "implied_volatility": 0.18436457504432863,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-12",
+      "underlying_price": 321.22468952799227,
+      "implied_volatility": 0.18136101769826551,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-15",
+      "underlying_price": 320.45086786213494,
+      "implied_volatility": 0.18534814552494883,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-16",
+      "underlying_price": 321.5325978334906,
+      "implied_volatility": 0.18855876403121818,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-17",
+      "underlying_price": 320.62644500020946,
+      "implied_volatility": 0.17915290572633882,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-18",
+      "underlying_price": 322.20342138007106,
+      "implied_volatility": 0.19175110956733368,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-19",
+      "underlying_price": 320.24364717308504,
+      "implied_volatility": 0.17768996366037026,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-22",
+      "underlying_price": 322.12851374055646,
+      "implied_volatility": 0.1835812320227103,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-23",
+      "underlying_price": 322.77502114113554,
+      "implied_volatility": 0.18096359213649443,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-24",
+      "underlying_price": 324.9895194407938,
+      "implied_volatility": 0.1822816086443223,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-25",
+      "underlying_price": 325.23688172550374,
+      "implied_volatility": 0.1837268505361816,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-26",
+      "underlying_price": 321.7544641757592,
+      "implied_volatility": 0.1783366980326085,
+      "rv20": null,
+      "iv_percentile_20": null,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-29",
+      "underlying_price": 320.28437033468714,
+      "implied_volatility": 0.17272010974253538,
+      "rv20": null,
+      "iv_percentile_20": 5.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-30",
+      "underlying_price": 318.27449123548865,
+      "implied_volatility": 0.18255348303844587,
+      "rv20": 0.1057902585983319,
+      "iv_percentile_20": 40.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-01-31",
+      "underlying_price": 317.5491779637796,
+      "implied_volatility": 0.18203399061981418,
+      "rv20": 0.10252604776818913,
+      "iv_percentile_20": 35.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-01",
+      "underlying_price": 319.3408619763748,
+      "implied_volatility": 0.18979486154580516,
+      "rv20": 0.08875209820022552,
+      "iv_percentile_20": 80.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-02",
+      "underlying_price": 318.30626415153995,
+      "implied_volatility": 0.19672470305179085,
+      "rv20": 0.08935540095277586,
+      "iv_percentile_20": 90.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-05",
+      "underlying_price": 315.3303224049729,
+      "implied_volatility": 0.17996972037420994,
+      "rv20": 0.09357849844779095,
+      "iv_percentile_20": 25.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-06",
+      "underlying_price": 316.5967600794627,
+      "implied_volatility": 0.18044972966439415,
+      "rv20": 0.08917036663632238,
+      "iv_percentile_20": 30.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-07",
+      "underlying_price": 315.65479244686003,
+      "implied_volatility": 0.18006359487039034,
+      "rv20": 0.08891507952511399,
+      "iv_percentile_20": 30.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-08",
+      "underlying_price": 314.99625423849943,
+      "implied_volatility": 0.18331993528575274,
+      "rv20": 0.08910575098366681,
+      "iv_percentile_20": 65.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-09",
+      "underlying_price": 314.21149757739306,
+      "implied_volatility": 0.17607286632037708,
+      "rv20": 0.08106688187065327,
+      "iv_percentile_20": 10.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-12",
+      "underlying_price": 315.4491462222749,
+      "implied_volatility": 0.16961810443121905,
+      "rv20": 0.0828171711571439,
+      "iv_percentile_20": 5.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-13",
+      "underlying_price": 316.6767658025056,
+      "implied_volatility": 0.17495039767594567,
+      "rv20": 0.08317873611075638,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-14",
+      "underlying_price": 316.52021409414476,
+      "implied_volatility": 0.16865100817582557,
+      "rv20": 0.08282326515559248,
+      "iv_percentile_20": 5.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-15",
+      "underlying_price": 312.58675846662663,
+      "implied_volatility": 0.14926336787108735,
+      "rv20": 0.09008750297356798,
+      "iv_percentile_20": 5.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-16",
+      "underlying_price": 310.31675939902874,
+      "implied_volatility": 0.15674432719305237,
+      "rv20": 0.09098341495069406,
+      "iv_percentile_20": 10.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-19",
+      "underlying_price": 309.50830955877683,
+      "implied_volatility": 0.17279150109941172,
+      "rv20": 0.08665896758745804,
+      "iv_percentile_20": 30.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-20",
+      "underlying_price": 311.316485736492,
+      "implied_volatility": 0.16155133495633536,
+      "rv20": 0.08999620595564613,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-21",
+      "underlying_price": 309.16605953801843,
+      "implied_volatility": 0.15678760144077877,
+      "rv20": 0.08561948115880541,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-22",
+      "underlying_price": 305.2317203436884,
+      "implied_volatility": 0.16336829036946993,
+      "rv20": 0.09207719992225138,
+      "iv_percentile_20": 25.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-23",
+      "underlying_price": 303.9398668683504,
+      "implied_volatility": 0.1455861858153299,
+      "rv20": 0.08775443169664782,
+      "iv_percentile_20": 5.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-26",
+      "underlying_price": 302.8014429264944,
+      "implied_volatility": 0.15027427629424236,
+      "rv20": 0.08758696326817926,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-27",
+      "underlying_price": 306.5667757679838,
+      "implied_volatility": 0.1504957359855083,
+      "rv20": 0.1016342166183956,
+      "iv_percentile_20": 20.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-28",
+      "underlying_price": 307.05927082816504,
+      "implied_volatility": 0.1550841251090172,
+      "rv20": 0.10236129376497238,
+      "iv_percentile_20": 25.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-02-29",
+      "underlying_price": 309.08108119878864,
+      "implied_volatility": 0.1592046296364351,
+      "rv20": 0.10329750572606697,
+      "iv_percentile_20": 40.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-01",
+      "underlying_price": 306.3926462692247,
+      "implied_volatility": 0.15322548849274414,
+      "rv20": 0.10623155960071452,
+      "iv_percentile_20": 25.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-04",
+      "underlying_price": 305.56751483398193,
+      "implied_volatility": 0.13771656891791717,
+      "rv20": 0.10256904348637028,
+      "iv_percentile_20": 5.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-05",
+      "underlying_price": 305.1309126505438,
+      "implied_volatility": 0.12303733715471477,
+      "rv20": 0.1004390352138982,
+      "iv_percentile_20": 5.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-06",
+      "underlying_price": 305.93138605953806,
+      "implied_volatility": 0.13852380641499903,
+      "rv20": 0.10156007722002874,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-07",
+      "underlying_price": 312.8230133555864,
+      "implied_volatility": 0.14537159426042584,
+      "rv20": 0.13212077267214628,
+      "iv_percentile_20": 20.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-08",
+      "underlying_price": 307.8986970206068,
+      "implied_volatility": 0.1507961338286492,
+      "rv20": 0.1430770793776166,
+      "iv_percentile_20": 45.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-11",
+      "underlying_price": 307.0102139827493,
+      "implied_volatility": 0.1466419432650493,
+      "rv20": 0.14199429172046016,
+      "iv_percentile_20": 30.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-12",
+      "underlying_price": 313.3360165899638,
+      "implied_volatility": 0.17319871247110546,
+      "rv20": 0.16091079117200546,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-13",
+      "underlying_price": 307.3398485649324,
+      "implied_volatility": 0.1777140595503946,
+      "rv20": 0.17418612599915456,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-14",
+      "underlying_price": 307.10439517856355,
+      "implied_volatility": 0.22131532368887286,
+      "rv20": 0.16923776162853746,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-15",
+      "underlying_price": 312.9394653176231,
+      "implied_volatility": 0.2308856358306165,
+      "rv20": 0.1810973051281463,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-18",
+      "underlying_price": 307.36033159637554,
+      "implied_volatility": 0.2399724371991353,
+      "rv20": 0.19238710228799946,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-19",
+      "underlying_price": 302.70175950270846,
+      "implied_volatility": 0.26318628641947184,
+      "rv20": 0.1979050780760315,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-20",
+      "underlying_price": 308.15506184947105,
+      "implied_volatility": 0.2799528228959153,
+      "rv20": 0.20802075400580483,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-21",
+      "underlying_price": 307.9947583590908,
+      "implied_volatility": 0.28209685930354955,
+      "rv20": 0.20261778300413605,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-22",
+      "underlying_price": 305.4342043211938,
+      "implied_volatility": 0.27810344550323574,
+      "rv20": 0.2043958358556157,
+      "iv_percentile_20": 90.0,
+      "iv_percentile_60": null,
+      "iv_rv_zscore": null,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-03-25",
+      "underlying_price": 306.50865403859245,
+      "implied_volatility": 0.30793684433122037,
+      "rv20": 0.20413768138408392,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": 100.0,
+      "iv_rv_zscore": 1.423969836793115,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-03-26",
+      "underlying_price": 305.8986801167409,
+      "implied_volatility": 0.31798025642712663,
+      "rv20": 0.19948487097114698,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": 100.0,
+      "iv_rv_zscore": 1.8289804764624387,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-03-27",
+      "underlying_price": 307.24635220313974,
+      "implied_volatility": 0.31923489389694354,
+      "rv20": 0.2000481206433628,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": 100.0,
+      "iv_rv_zscore": 1.7585216840813627,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-03-28",
+      "underlying_price": 309.8234474968312,
+      "implied_volatility": 0.3420026869962145,
+      "rv20": 0.20092229703283934,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": 100.0,
+      "iv_rv_zscore": 2.2871204004407675,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-03-29",
+      "underlying_price": 302.8120516365543,
+      "implied_volatility": 0.3276356585258321,
+      "rv20": 0.21498633288508853,
+      "iv_percentile_20": 95.0,
+      "iv_percentile_60": 98.33333333333333,
+      "iv_rv_zscore": 1.358715466960197,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-04-01",
+      "underlying_price": 312.91655004269467,
+      "implied_volatility": 0.3297957742039721,
+      "rv20": 0.24521391857852354,
+      "iv_percentile_20": 95.0,
+      "iv_percentile_60": 98.33333333333333,
+      "iv_rv_zscore": 0.49059347604737397,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-04-02",
+      "underlying_price": 321.75978016512596,
+      "implied_volatility": 0.32217174819440425,
+      "rv20": 0.26250904372752437,
+      "iv_percentile_20": 85.0,
+      "iv_percentile_60": 95.0,
+      "iv_rv_zscore": -0.2775372832275062,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-03",
+      "underlying_price": 325.77696032870597,
+      "implied_volatility": 0.32212826607083556,
+      "rv20": 0.2647818907389392,
+      "iv_percentile_20": 80.0,
+      "iv_percentile_60": 93.33333333333333,
+      "iv_rv_zscore": -0.34586433049426013,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-04",
+      "underlying_price": 324.85346248652627,
+      "implied_volatility": 0.3307781909354587,
+      "rv20": 0.2555578527643674,
+      "iv_percentile_20": 95.0,
+      "iv_percentile_60": 98.33333333333333,
+      "iv_rv_zscore": 0.2162636648491279,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-04-05",
+      "underlying_price": 325.49141608421644,
+      "implied_volatility": 0.34286867732463383,
+      "rv20": 0.2468171119670876,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": 100.0,
+      "iv_rv_zscore": 0.8650958831724069,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-04-08",
+      "underlying_price": 325.27318502869696,
+      "implied_volatility": 0.335231094608201,
+      "rv20": 0.24626628792636138,
+      "iv_percentile_20": 90.0,
+      "iv_percentile_60": 96.66666666666667,
+      "iv_rv_zscore": 0.6295185286244824,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-04-09",
+      "underlying_price": 319.9996425426274,
+      "implied_volatility": 0.3345740399803241,
+      "rv20": 0.24615920737721955,
+      "iv_percentile_20": 85.0,
+      "iv_percentile_60": 95.0,
+      "iv_rv_zscore": 0.603655099971299,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-04-10",
+      "underlying_price": 312.1561091483424,
+      "implied_volatility": 0.33958523298240195,
+      "rv20": 0.2528719556398607,
+      "iv_percentile_20": 90.0,
+      "iv_percentile_60": 96.66666666666667,
+      "iv_rv_zscore": 0.5417501052467205,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-04-11",
+      "underlying_price": 315.13006642302906,
+      "implied_volatility": 0.3358632002906239,
+      "rv20": 0.25465252499349095,
+      "iv_percentile_20": 85.0,
+      "iv_percentile_60": 95.0,
+      "iv_rv_zscore": 0.3584576215956165,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-04-12",
+      "underlying_price": 321.23913175726966,
+      "implied_volatility": 0.34635934009983443,
+      "rv20": 0.2550012747364058,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": 100.0,
+      "iv_rv_zscore": 0.6828339735352016,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-04-15",
+      "underlying_price": 320.3826048205484,
+      "implied_volatility": 0.33976225534954024,
+      "rv20": 0.2452360371117745,
+      "iv_percentile_20": 85.0,
+      "iv_percentile_60": 95.0,
+      "iv_rv_zscore": 0.7760630855939465,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-04-16",
+      "underlying_price": 321.0506905304822,
+      "implied_volatility": 0.3212229744690179,
+      "rv20": 0.23653666375033108,
+      "iv_percentile_20": 35.0,
+      "iv_percentile_60": 78.33333333333333,
+      "iv_rv_zscore": 0.4448130536887071,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-17",
+      "underlying_price": 321.35070431103577,
+      "implied_volatility": 0.3053579671195744,
+      "rv20": 0.22992110774888588,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": 71.66666666666667,
+      "iv_rv_zscore": 0.13447228025419353,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-18",
+      "underlying_price": 326.0238946747642,
+      "implied_volatility": 0.27809653827694447,
+      "rv20": 0.23376170898778462,
+      "iv_percentile_20": 5.0,
+      "iv_percentile_60": 65.0,
+      "iv_rv_zscore": -0.8999339203855029,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-19",
+      "underlying_price": 322.5177242140571,
+      "implied_volatility": 0.2560014703738953,
+      "rv20": 0.23548392023585357,
+      "iv_percentile_20": 5.0,
+      "iv_percentile_60": 61.66666666666667,
+      "iv_rv_zscore": -1.649253164499392,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-22",
+      "underlying_price": 330.03429884258594,
+      "implied_volatility": 0.2610132056143339,
+      "rv20": 0.24630563621710042,
+      "iv_percentile_20": 10.0,
+      "iv_percentile_60": 61.66666666666667,
+      "iv_rv_zscore": -1.7768391120410696,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-23",
+      "underlying_price": 316.98886168513025,
+      "implied_volatility": 0.2724552902151557,
+      "rv20": 0.29149951857316575,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": 63.33333333333333,
+      "iv_rv_zscore": -2.650138532432269,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-24",
+      "underlying_price": 313.91152287289333,
+      "implied_volatility": 0.27159671570867505,
+      "rv20": 0.29413182161310736,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": 61.66666666666667,
+      "iv_rv_zscore": -2.551527116865025,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-25",
+      "underlying_price": 303.73123885343585,
+      "implied_volatility": 0.26504486419780565,
+      "rv20": 0.3163030348761611,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": 60.0,
+      "iv_rv_zscore": -3.056265700621992,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-26",
+      "underlying_price": 296.5047468085803,
+      "implied_volatility": 0.2649440367338316,
+      "rv20": 0.31742163360230696,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": 58.333333333333336,
+      "iv_rv_zscore": -2.8347924364100425,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-29",
+      "underlying_price": 313.3164922038908,
+      "implied_volatility": 0.2615484852530916,
+      "rv20": 0.35651115076626017,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": 55.00000000000001,
+      "iv_rv_zscore": -3.4266992028515646,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-04-30",
+      "underlying_price": 315.4242727074114,
+      "implied_volatility": 0.29539808073759294,
+      "rv20": 0.34224878386018265,
+      "iv_percentile_20": 45.0,
+      "iv_percentile_60": 70.0,
+      "iv_rv_zscore": -2.2073161148463623,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-01",
+      "underlying_price": 314.0440662594421,
+      "implied_volatility": 0.31235351476592116,
+      "rv20": 0.3386996588319273,
+      "iv_percentile_20": 55.00000000000001,
+      "iv_percentile_60": 73.33333333333333,
+      "iv_rv_zscore": -1.6881668700105894,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-02",
+      "underlying_price": 311.8975077082148,
+      "implied_volatility": 0.3182805648716318,
+      "rv20": 0.33915809681955145,
+      "iv_percentile_20": 60.0,
+      "iv_percentile_60": 75.0,
+      "iv_rv_zscore": -1.5111226656019257,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-03",
+      "underlying_price": 310.5744267178948,
+      "implied_volatility": 0.3201201009625103,
+      "rv20": 0.33890392902774685,
+      "iv_percentile_20": 65.0,
+      "iv_percentile_60": 76.66666666666667,
+      "iv_rv_zscore": -1.4131112776824117,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-06",
+      "underlying_price": 307.40892799082076,
+      "implied_volatility": 0.3319763206112214,
+      "rv20": 0.33997858417534754,
+      "iv_percentile_20": 75.0,
+      "iv_percentile_60": 86.66666666666667,
+      "iv_rv_zscore": -1.1502775531142146,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-07",
+      "underlying_price": 308.39030737199784,
+      "implied_volatility": 0.3384490103597221,
+      "rv20": 0.3367297838386914,
+      "iv_percentile_20": 85.0,
+      "iv_percentile_60": 91.66666666666666,
+      "iv_rv_zscore": -0.9195611775760711,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-08",
+      "underlying_price": 308.46790655559425,
+      "implied_volatility": 0.33284062376363005,
+      "rv20": 0.3256247631665429,
+      "iv_percentile_20": 80.0,
+      "iv_percentile_60": 85.0,
+      "iv_rv_zscore": -0.780145317293885,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-09",
+      "underlying_price": 307.97828074483795,
+      "implied_volatility": 0.3615386896634736,
+      "rv20": 0.3234450211459759,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": 100.0,
+      "iv_rv_zscore": -0.13904537321581265,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-10",
+      "underlying_price": 310.309776594758,
+      "implied_volatility": 0.3534903720980424,
+      "rv20": 0.3162854177094415,
+      "iv_percentile_20": 95.0,
+      "iv_percentile_60": 98.33333333333333,
+      "iv_rv_zscore": -0.1477319944562282,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-13",
+      "underlying_price": 311.92304127778397,
+      "implied_volatility": 0.34222058543826256,
+      "rv20": 0.31720382362495164,
+      "iv_percentile_20": 90.0,
+      "iv_percentile_60": 93.33333333333333,
+      "iv_rv_zscore": -0.37945536591729295,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-14",
+      "underlying_price": 313.55412366233446,
+      "implied_volatility": 0.3492510540527054,
+      "rv20": 0.3178461184346498,
+      "iv_percentile_20": 90.0,
+      "iv_percentile_60": 96.66666666666667,
+      "iv_rv_zscore": -0.23410278919218658,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-15",
+      "underlying_price": 319.1779959734963,
+      "implied_volatility": 0.3565840103512532,
+      "rv20": 0.32487794516838514,
+      "iv_percentile_20": 95.0,
+      "iv_percentile_60": 98.33333333333333,
+      "iv_rv_zscore": -0.21478803746799188,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-16",
+      "underlying_price": 316.42553802831634,
+      "implied_volatility": 0.36180534610293824,
+      "rv20": 0.32126980183885684,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": 100.0,
+      "iv_rv_zscore": -0.020699661245023527,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-17",
+      "underlying_price": 314.76188445209294,
+      "implied_volatility": 0.3600411457898198,
+      "rv20": 0.3197365879352038,
+      "iv_percentile_20": 90.0,
+      "iv_percentile_60": 96.66666666666667,
+      "iv_rv_zscore": -0.01944438295281926,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-20",
+      "underlying_price": 315.7496305227426,
+      "implied_volatility": 0.37875467741116453,
+      "rv20": 0.30727280369187476,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": 100.0,
+      "iv_rv_zscore": 0.6271169136972634,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-05-21",
+      "underlying_price": 314.41807262344037,
+      "implied_volatility": 0.3784283535655174,
+      "rv20": 0.2726448500661586,
+      "iv_percentile_20": 95.0,
+      "iv_percentile_60": 98.33333333333333,
+      "iv_rv_zscore": 1.3028192621166337,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-05-22",
+      "underlying_price": 312.2939890874091,
+      "implied_volatility": 0.3571005846083054,
+      "rv20": 0.271493402012402,
+      "iv_percentile_20": 75.0,
+      "iv_percentile_60": 91.66666666666666,
+      "iv_rv_zscore": 0.8718741707296297,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-05-23",
+      "underlying_price": 322.7373606501789,
+      "implied_volatility": 0.3377950935716004,
+      "rv20": 0.26686812374265534,
+      "iv_percentile_20": 45.0,
+      "iv_percentile_60": 73.33333333333333,
+      "iv_rv_zscore": 0.5659868983474382,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-24",
+      "underlying_price": 320.8200340727337,
+      "implied_volatility": 0.3413486486601295,
+      "rv20": 0.24964438893437438,
+      "iv_percentile_20": 50.0,
+      "iv_percentile_60": 78.33333333333333,
+      "iv_rv_zscore": 0.9660559258332663,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-05-27",
+      "underlying_price": 318.87835470554006,
+      "implied_volatility": 0.35881348942991464,
+      "rv20": 0.16243251065091432,
+      "iv_percentile_20": 75.0,
+      "iv_percentile_60": 91.66666666666666,
+      "iv_rv_zscore": 2.812891105065459,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-05-28",
+      "underlying_price": 329.5728127348723,
+      "implied_volatility": 0.37378937971316123,
+      "rv20": 0.1978619265674148,
+      "iv_percentile_20": 90.0,
+      "iv_percentile_60": 96.66666666666667,
+      "iv_rv_zscore": 2.2760795416101915,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-05-29",
+      "underlying_price": 340.7007662484692,
+      "implied_volatility": 0.37849151198324493,
+      "rv20": 0.22448810445031628,
+      "iv_percentile_20": 95.0,
+      "iv_percentile_60": 98.33333333333333,
+      "iv_rv_zscore": 1.7961884221516944,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-05-30",
+      "underlying_price": 338.8813037026079,
+      "implied_volatility": 0.3769038077828787,
+      "rv20": 0.22357830360342257,
+      "iv_percentile_20": 85.0,
+      "iv_percentile_60": 95.0,
+      "iv_rv_zscore": 1.7057507936287755,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-05-31",
+      "underlying_price": 345.3648132355662,
+      "implied_volatility": 0.3617515164193805,
+      "rv20": 0.22715770744884162,
+      "iv_percentile_20": 70.0,
+      "iv_percentile_60": 90.0,
+      "iv_rv_zscore": 1.3359837371361742,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-06-03",
+      "underlying_price": 344.208755841143,
+      "implied_volatility": 0.3756951063345968,
+      "rv20": 0.22216139981264624,
+      "iv_percentile_20": 80.0,
+      "iv_percentile_60": 93.33333333333333,
+      "iv_rv_zscore": 1.5886943718237094,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-06-04",
+      "underlying_price": 356.3471157213584,
+      "implied_volatility": 0.38393620556884506,
+      "rv20": 0.24448984793890563,
+      "iv_percentile_20": 100.0,
+      "iv_percentile_60": 100.0,
+      "iv_rv_zscore": 1.3061653943817344,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-06-05",
+      "underlying_price": 355.9855015112914,
+      "implied_volatility": 0.367415409916393,
+      "rv20": 0.2450100456628959,
+      "iv_percentile_20": 65.0,
+      "iv_percentile_60": 88.33333333333333,
+      "iv_rv_zscore": 0.9919502172914421,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-06-06",
+      "underlying_price": 366.3904385686219,
+      "implied_volatility": 0.3749265362288694,
+      "rv20": 0.25419593807767527,
+      "iv_percentile_20": 70.0,
+      "iv_percentile_60": 90.0,
+      "iv_rv_zscore": 0.9385948590041883,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-06-07",
+      "underlying_price": 359.52800692437086,
+      "implied_volatility": 0.37338960598550064,
+      "rv20": 0.2724538480813029,
+      "iv_percentile_20": 60.0,
+      "iv_percentile_60": 86.66666666666667,
+      "iv_rv_zscore": 0.5998644975829331,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-06-10",
+      "underlying_price": 355.08554073899063,
+      "implied_volatility": 0.37616654791401516,
+      "rv20": 0.2813524726322542,
+      "iv_percentile_20": 75.0,
+      "iv_percentile_60": 91.66666666666666,
+      "iv_rv_zscore": 0.4866739210424199,
+      "signal": "short_vol"
+    },
+    {
+      "date": "2024-06-11",
+      "underlying_price": 359.28402465906635,
+      "implied_volatility": 0.34705667214910507,
+      "rv20": 0.28191952476317617,
+      "iv_percentile_20": 15.0,
+      "iv_percentile_60": 66.66666666666666,
+      "iv_rv_zscore": 0.0041636477104641115,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-12",
+      "underlying_price": 359.8634080278768,
+      "implied_volatility": 0.3542037363910946,
+      "rv20": 0.2794052660524953,
+      "iv_percentile_20": 20.0,
+      "iv_percentile_60": 70.0,
+      "iv_rv_zscore": 0.1604633595066244,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-13",
+      "underlying_price": 346.1883527003292,
+      "implied_volatility": 0.348888608294846,
+      "rv20": 0.3180655528786774,
+      "iv_percentile_20": 20.0,
+      "iv_percentile_60": 65.0,
+      "iv_rv_zscore": -0.5402160089305694,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-14",
+      "underlying_price": 336.07813387426637,
+      "implied_volatility": 0.3685371921499915,
+      "rv20": 0.33905788850725516,
+      "iv_percentile_20": 50.0,
+      "iv_percentile_60": 83.33333333333334,
+      "iv_rv_zscore": -0.5487436179827963,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-17",
+      "underlying_price": 341.5836534001951,
+      "implied_volatility": 0.36143280764562535,
+      "rv20": 0.34216651813260224,
+      "iv_percentile_20": 40.0,
+      "iv_percentile_60": 75.0,
+      "iv_rv_zscore": -0.6909544599825915,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-18",
+      "underlying_price": 348.63823970658865,
+      "implied_volatility": 0.3635408881773101,
+      "rv20": 0.34555308438589727,
+      "iv_percentile_20": 50.0,
+      "iv_percentile_60": 80.0,
+      "iv_rv_zscore": -0.6867169660862255,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-19",
+      "underlying_price": 350.51160969105877,
+      "implied_volatility": 0.35384321447677924,
+      "rv20": 0.3426625094742783,
+      "iv_percentile_20": 25.0,
+      "iv_percentile_60": 63.33333333333333,
+      "iv_rv_zscore": -0.7701379213548495,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-20",
+      "underlying_price": 349.59013458160723,
+      "implied_volatility": 0.3593346178055149,
+      "rv20": 0.32827054335328343,
+      "iv_percentile_20": 35.0,
+      "iv_percentile_60": 70.0,
+      "iv_rv_zscore": -0.42265319175455296,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-21",
+      "underlying_price": 342.75193796926953,
+      "implied_volatility": 0.3578779897630483,
+      "rv20": 0.3373464522705073,
+      "iv_percentile_20": 25.0,
+      "iv_percentile_60": 66.66666666666666,
+      "iv_rv_zscore": -0.5738204391684834,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-24",
+      "underlying_price": 338.0536044486412,
+      "implied_volatility": 0.3488080201520442,
+      "rv20": 0.3412903093928042,
+      "iv_percentile_20": 10.0,
+      "iv_percentile_60": 53.333333333333336,
+      "iv_rv_zscore": -0.7660485715454414,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-25",
+      "underlying_price": 343.5772083999341,
+      "implied_volatility": 0.350892735040782,
+      "rv20": 0.32656269181205444,
+      "iv_percentile_20": 20.0,
+      "iv_percentile_60": 56.666666666666664,
+      "iv_rv_zscore": -0.47739707560142075,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-26",
+      "underlying_price": 349.27296125182744,
+      "implied_volatility": 0.3627463387094467,
+      "rv20": 0.310390178714288,
+      "iv_percentile_20": 55.00000000000001,
+      "iv_percentile_60": 78.33333333333333,
+      "iv_rv_zscore": -0.013454734516909282,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-27",
+      "underlying_price": 365.0711438711842,
+      "implied_volatility": 0.36071961969156074,
+      "rv20": 0.3444602623877256,
+      "iv_percentile_20": 45.0,
+      "iv_percentile_60": 70.0,
+      "iv_rv_zscore": -0.5919166321306809,
+      "signal": "neutral"
+    },
+    {
+      "date": "2024-06-28",
+      "underlying_price": 376.40278511044266,
+      "implied_volatility": 0.3562210465565667,
+      "rv20": 0.3536180440859929,
+      "iv_percentile_20": 35.0,
+      "iv_percentile_60": 58.333333333333336,
+      "iv_rv_zscore": -0.7905320784242343,
+      "signal": "neutral"
+    }
+  ],
+  "exposures": [
+    {
+      "date": "2024-01-02",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-03",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-04",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-05",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-08",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-09",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-10",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-11",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-12",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-15",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-16",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-17",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-18",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-19",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-22",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-23",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-24",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-25",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-26",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-29",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-30",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-01-31",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-01",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-02",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-05",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-06",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-07",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-08",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-09",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-12",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-13",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-14",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-15",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-16",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-19",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-20",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-21",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-22",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-23",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-26",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-27",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-28",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-02-29",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-01",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-04",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-05",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-06",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-07",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-08",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-11",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-12",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-13",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-14",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-15",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-18",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-19",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-20",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-21",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-22",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-25",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-03-26",
+      "delta": 0.0,
+      "vega": -97.98881142759866,
+      "margin_used": 18886.03298133927,
+      "open_positions": 1
+    },
+    {
+      "date": "2024-03-27",
+      "delta": 0.0,
+      "vega": -191.25231682618167,
+      "margin_used": 37831.624555590446,
+      "open_positions": 2
+    },
+    {
+      "date": "2024-03-28",
+      "delta": 0.0,
+      "vega": -317.2997683650491,
+      "margin_used": 55646.27745733695,
+      "open_positions": 3
+    },
+    {
+      "date": "2024-03-29",
+      "delta": 0.0,
+      "vega": -412.67349492435176,
+      "margin_used": 73824.0862842613,
+      "open_positions": 4
+    },
+    {
+      "date": "2024-04-01",
+      "delta": 0.0,
+      "vega": -486.500430586285,
+      "margin_used": 92310.52496167687,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-04-02",
+      "delta": 0.0,
+      "vega": -453.63823611607745,
+      "margin_used": 92310.52496167687,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-04-03",
+      "delta": 0.0,
+      "vega": -426.5603900846928,
+      "margin_used": 92310.52496167687,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-04-04",
+      "delta": 0.0,
+      "vega": -421.03027194890683,
+      "margin_used": 92310.52496167687,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-04-05",
+      "delta": 0.0,
+      "vega": -411.50413081459567,
+      "margin_used": 92310.52496167687,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-04-08",
+      "delta": 0.0,
+      "vega": -366.2572677714159,
+      "margin_used": 92310.52496167687,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-04-09",
+      "delta": 0.0,
+      "vega": -361.9778394736619,
+      "margin_used": 83594.38068304269,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-04-10",
+      "delta": 0.0,
+      "vega": -399.6806277970169,
+      "margin_used": 84233.4566066589,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-04-11",
+      "delta": 0.0,
+      "vega": -427.57374295174554,
+      "margin_used": 84648.94702475474,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-04-12",
+      "delta": 0.0,
+      "vega": -465.67768241458197,
+      "margin_used": 85329.95274841196,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-04-15",
+      "delta": 0.0,
+      "vega": -417.94187938434163,
+      "margin_used": 77092.72486381832,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-04-16",
+      "delta": 0.0,
+      "vega": -257.10919101652104,
+      "margin_used": 48790.250530588644,
+      "open_positions": 4
+    },
+    {
+      "date": "2024-04-17",
+      "delta": 0.0,
+      "vega": -100.0976011085937,
+      "margin_used": 20390.218508041224,
+      "open_positions": 2
+    },
+    {
+      "date": "2024-04-18",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-04-19",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-04-22",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-04-23",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-04-24",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-04-25",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-04-26",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-04-29",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-04-30",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-01",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-02",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-03",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-06",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-07",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-08",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-09",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-10",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-13",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-14",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-15",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-16",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-17",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-20",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-05-21",
+      "delta": 0.0,
+      "vega": -103.96003468404106,
+      "margin_used": 19028.25830987523,
+      "open_positions": 1
+    },
+    {
+      "date": "2024-05-22",
+      "delta": 0.0,
+      "vega": -194.0348631752819,
+      "margin_used": 37570.64153486796,
+      "open_positions": 2
+    },
+    {
+      "date": "2024-05-23",
+      "delta": 0.0,
+      "vega": -312.5693238462803,
+      "margin_used": 55309.378392882274,
+      "open_positions": 3
+    },
+    {
+      "date": "2024-05-24",
+      "delta": 0.0,
+      "vega": -303.30085986310735,
+      "margin_used": 55309.378392882274,
+      "open_positions": 3
+    },
+    {
+      "date": "2024-05-27",
+      "delta": 0.0,
+      "vega": -278.2029255055276,
+      "margin_used": 55309.378392882274,
+      "open_positions": 3
+    },
+    {
+      "date": "2024-05-28",
+      "delta": 0.0,
+      "vega": -375.98199822592096,
+      "margin_used": 74457.06520767206,
+      "open_positions": 4
+    },
+    {
+      "date": "2024-05-29",
+      "delta": 0.0,
+      "vega": -277.0551298567207,
+      "margin_used": 58293.520254542556,
+      "open_positions": 3
+    },
+    {
+      "date": "2024-05-30",
+      "delta": 0.0,
+      "vega": -402.8587435535345,
+      "margin_used": 76820.56287275118,
+      "open_positions": 4
+    },
+    {
+      "date": "2024-05-31",
+      "delta": 0.0,
+      "vega": -513.2411100574493,
+      "margin_used": 95671.30575359648,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-06-03",
+      "delta": 0.0,
+      "vega": -468.9427884219306,
+      "margin_used": 95671.30575359648,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-06-04",
+      "delta": 0.0,
+      "vega": -465.3822725481137,
+      "margin_used": 87494.72228257559,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-06-05",
+      "delta": 0.0,
+      "vega": -440.7492064839248,
+      "margin_used": 87494.72228257559,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-06-06",
+      "delta": 0.0,
+      "vega": -407.67630427860814,
+      "margin_used": 87494.72228257559,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-06-07",
+      "delta": 0.0,
+      "vega": -409.0007296808099,
+      "margin_used": 87494.72228257559,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-06-10",
+      "delta": 0.0,
+      "vega": -373.5526304187018,
+      "margin_used": 87494.72228257559,
+      "open_positions": 5
+    },
+    {
+      "date": "2024-06-11",
+      "delta": 0.0,
+      "vega": -255.083141716236,
+      "margin_used": 48163.12507841658,
+      "open_positions": 3
+    },
+    {
+      "date": "2024-06-12",
+      "delta": 0.0,
+      "vega": -249.5289891566359,
+      "margin_used": 48163.12507841658,
+      "open_positions": 3
+    },
+    {
+      "date": "2024-06-13",
+      "delta": 0.0,
+      "vega": -137.4354618640744,
+      "margin_used": 29636.082460207952,
+      "open_positions": 2
+    },
+    {
+      "date": "2024-06-14",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-06-17",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-06-18",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-06-19",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-06-20",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-06-21",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-06-24",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-06-25",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-06-26",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-06-27",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    },
+    {
+      "date": "2024-06-28",
+      "delta": 0.0,
+      "vega": 0.0,
+      "margin_used": 0,
+      "open_positions": 0
+    }
+  ],
+  "trades": [
+    {
+      "date": "2024-03-26",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-03-25",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-03-27",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-03-26",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-03-28",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-03-27",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-03-29",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-03-28",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-04-01",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-03-29",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-04-02",
+      "event": "limit",
+      "strategy": "short_strangle",
+      "reason": "max_positions",
+      "signal": "short_vol",
+      "signal_date": "2024-04-01",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-04-05",
+      "event": "limit",
+      "strategy": "short_strangle",
+      "reason": "max_positions",
+      "signal": "short_vol",
+      "signal_date": "2024-04-04",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-04-08",
+      "event": "limit",
+      "strategy": "short_strangle",
+      "reason": "max_positions",
+      "signal": "short_vol",
+      "signal_date": "2024-04-05",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-04-09",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "max_holding",
+      "pnl": 111.01770939719397,
+      "signal_date": "2024-03-25"
+    },
+    {
+      "date": "2024-04-09",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-04-08",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-04-10",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "max_holding",
+      "pnl": -30.07058972225626,
+      "signal_date": "2024-03-26"
+    },
+    {
+      "date": "2024-04-10",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-04-09",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-04-11",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "max_holding",
+      "pnl": 243.40754675159522,
+      "signal_date": "2024-03-27"
+    },
+    {
+      "date": "2024-04-11",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-04-10",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-04-12",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "max_holding",
+      "pnl": -58.57819627583851,
+      "signal_date": "2024-03-28"
+    },
+    {
+      "date": "2024-04-12",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-04-11",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-04-15",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "max_holding",
+      "pnl": 346.19595435760334,
+      "signal_date": "2024-03-29"
+    },
+    {
+      "date": "2024-04-15",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-04-12",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-04-16",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "profit_target",
+      "pnl": 420.3309490818877,
+      "signal_date": "2024-04-09"
+    },
+    {
+      "date": "2024-04-16",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "profit_target",
+      "pnl": 539.7193191600221,
+      "signal_date": "2024-04-11"
+    },
+    {
+      "date": "2024-04-16",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-04-15",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-04-17",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "profit_target",
+      "pnl": 272.47748764317964,
+      "signal_date": "2024-04-08"
+    },
+    {
+      "date": "2024-04-17",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "profit_target",
+      "pnl": 607.3892480585431,
+      "signal_date": "2024-04-10"
+    },
+    {
+      "date": "2024-04-18",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "profit_target",
+      "pnl": 345.9297463994072,
+      "signal_date": "2024-04-12"
+    },
+    {
+      "date": "2024-04-18",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "profit_target",
+      "pnl": 211.75347150330168,
+      "signal_date": "2024-04-15"
+    },
+    {
+      "date": "2024-05-21",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-05-20",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-05-22",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-05-21",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-05-23",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-05-22",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-05-28",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-05-27",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-05-29",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "stop_loss",
+      "pnl": -450.89135195993487,
+      "signal_date": "2024-05-21"
+    },
+    {
+      "date": "2024-05-29",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "stop_loss",
+      "pnl": -511.26059188909335,
+      "signal_date": "2024-05-22"
+    },
+    {
+      "date": "2024-05-29",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-05-28",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-05-30",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-05-29",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-05-31",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-05-30",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-06-03",
+      "event": "limit",
+      "strategy": "short_strangle",
+      "reason": "max_positions",
+      "signal": "short_vol",
+      "signal_date": "2024-05-31",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-06-04",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "max_holding",
+      "pnl": -51.93097669486884,
+      "signal_date": "2024-05-20"
+    },
+    {
+      "date": "2024-06-04",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-06-03",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-06-05",
+      "event": "limit",
+      "strategy": "short_strangle",
+      "reason": "max_positions",
+      "signal": "short_vol",
+      "signal_date": "2024-06-04",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-06-06",
+      "event": "limit",
+      "strategy": "short_strangle",
+      "reason": "max_positions",
+      "signal": "short_vol",
+      "signal_date": "2024-06-05",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-06-07",
+      "event": "limit",
+      "strategy": "short_strangle",
+      "reason": "max_positions",
+      "signal": "short_vol",
+      "signal_date": "2024-06-06",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-06-10",
+      "event": "limit",
+      "strategy": "short_strangle",
+      "reason": "max_positions",
+      "signal": "short_vol",
+      "signal_date": "2024-06-07",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-06-11",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "max_holding",
+      "pnl": 318.9582098568106,
+      "signal_date": "2024-05-27"
+    },
+    {
+      "date": "2024-06-11",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "profit_target",
+      "pnl": 610.4012443699448,
+      "signal_date": "2024-05-28"
+    },
+    {
+      "date": "2024-06-11",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "profit_target",
+      "pnl": 308.3468171208149,
+      "signal_date": "2024-06-03"
+    },
+    {
+      "date": "2024-06-11",
+      "event": "open",
+      "strategy": "short_strangle",
+      "signal": "short_vol",
+      "signal_date": "2024-06-10",
+      "pnl": 0.0
+    },
+    {
+      "date": "2024-06-13",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "max_holding",
+      "pnl": 411.4494814129402,
+      "signal_date": "2024-05-29"
+    },
+    {
+      "date": "2024-06-14",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "max_holding",
+      "pnl": 5.848194827503471,
+      "signal_date": "2024-05-30"
+    },
+    {
+      "date": "2024-06-14",
+      "event": "close",
+      "strategy": "short_strangle",
+      "reason": "stop_loss",
+      "pnl": -237.1075410467877,
+      "signal_date": "2024-06-10"
+    }
+  ],
+  "legs": [
+    {
+      "trade_index": 0,
+      "option_type": "call",
+      "strike": 325.0,
+      "expiry": "2024-04-19",
+      "quantity": -2,
+      "entry_price": 3.22417755,
+      "price": 3.22417755,
+      "entry_delta": 0.23912723772174968,
+      "entry_gamma": 0.012773301808007542,
+      "entry_vega": 0.24327691047473401,
+      "entry_theta": -0.16022302568994048
+    },
+    {
+      "trade_index": 0,
+      "option_type": "put",
+      "strike": 290.0,
+      "expiry": "2024-04-19",
+      "quantity": -2,
+      "entry_price": 3.84651531,
+      "price": 3.84651531,
+      "entry_delta": -0.2453142243008631,
+      "entry_gamma": 0.01218200118987219,
+      "entry_vega": 0.2466671466632593,
+      "entry_theta": -0.16509483407102213
+    },
+    {
+      "trade_index": 1,
+      "option_type": "call",
+      "strike": 325.0,
+      "expiry": "2024-04-19",
+      "quantity": -2,
+      "entry_price": 3.41275869,
+      "price": 3.41275869,
+      "entry_delta": 0.2522140857529666,
+      "entry_gamma": 0.013322263887664752,
+      "entry_vega": 0.2461481218951082,
+      "entry_theta": -0.16974235381707503
+    },
+    {
+      "trade_index": 1,
+      "option_type": "put",
+      "strike": 290.0,
+      "expiry": "2024-04-19",
+      "quantity": -2,
+      "entry_price": 3.4166583,
+      "price": 3.4166583,
+      "entry_delta": -0.22628522139263557,
+      "entry_gamma": 0.01178393341668665,
+      "entry_vega": 0.23198267017034596,
+      "entry_theta": -0.16318439229121068
+    },
+    {
+      "trade_index": 2,
+      "option_type": "call",
+      "strike": 335.0,
+      "expiry": "2024-05-03",
+      "quantity": -2,
+      "entry_price": 4.55404455,
+      "price": 4.55404455,
+      "entry_delta": 0.2505834683983842,
+      "entry_gamma": 0.009738007688080525,
+      "entry_vega": 0.3094111337636712,
+      "entry_theta": -0.14766907548639716
+    },
+    {
+      "trade_index": 2,
+      "option_type": "put",
+      "strike": 290.0,
+      "expiry": "2024-05-03",
+      "quantity": -2,
+      "entry_price": 5.58984096,
+      "price": 5.58984096,
+      "entry_delta": -0.25527499865401987,
+      "entry_gamma": 0.009166565534683696,
+      "entry_vega": 0.31244393146095856,
+      "entry_theta": -0.15186243926515638
+    },
+    {
+      "trade_index": 3,
+      "option_type": "call",
+      "strike": 325.0,
+      "expiry": "2024-05-03",
+      "quantity": -2,
+      "entry_price": 4.448955059999999,
+      "price": 4.448955059999999,
+      "entry_delta": 0.2604961405728548,
+      "entry_gamma": 0.010731154010893479,
+      "entry_vega": 0.30428402336943816,
+      "entry_theta": -0.14369943533819318
+    },
+    {
+      "trade_index": 3,
+      "option_type": "put",
+      "strike": 285.0,
+      "expiry": "2024-05-03",
+      "quantity": -2,
+      "entry_price": 5.315268420000001,
+      "price": 5.315268420000001,
+      "entry_delta": -0.2616609468674094,
+      "entry_gamma": 0.010059178038811033,
+      "entry_vega": 0.3049820678469398,
+      "entry_theta": -0.14588087994973212
+    },
+    {
+      "trade_index": 4,
+      "option_type": "call",
+      "strike": 335.0,
+      "expiry": "2024-04-26",
+      "quantity": -2,
+      "entry_price": 3.24027594,
+      "price": 3.24027594,
+      "entry_delta": 0.22566340783762967,
+      "entry_gamma": 0.011390020283923304,
+      "entry_vega": 0.2459323651702509,
+      "entry_theta": -0.16156613028986577
+    },
+    {
+      "trade_index": 4,
+      "option_type": "put",
+      "strike": 295.0,
+      "expiry": "2024-04-26",
+      "quantity": -2,
+      "entry_price": 4.025297429999999,
+      "price": 4.025297429999999,
+      "entry_delta": -0.23732564090608738,
+      "entry_gamma": 0.010975398597804623,
+      "entry_vega": 0.25293638871012,
+      "entry_theta": -0.16983186888810783
+    },
+    {
+      "trade_index": 9,
+      "option_type": "call",
+      "strike": 340.0,
+      "expiry": "2024-05-03",
+      "quantity": -1,
+      "entry_price": 3.80321964,
+      "price": 3.80321964,
+      "entry_delta": 0.25194682816028763,
+      "entry_gamma": 0.011899634305655351,
+      "entry_vega": 0.26172877064718725,
+      "entry_theta": -0.1817765073684853
+    },
+    {
+      "trade_index": 9,
+      "option_type": "put",
+      "strike": 305.0,
+      "expiry": "2024-05-03",
+      "quantity": -1,
+      "entry_price": 4.89581037,
+      "price": 4.89581037,
+      "entry_delta": -0.27383812414033765,
+      "entry_gamma": 0.011764614708294695,
+      "entry_vega": 0.27311620581656226,
+      "entry_theta": -0.19145035580592829
+    },
+    {
+      "trade_index": 11,
+      "option_type": "call",
+      "strike": 330.0,
+      "expiry": "2024-05-03",
+      "quantity": -2,
+      "entry_price": 4.0225976999999995,
+      "price": 4.0225976999999995,
+      "entry_delta": 0.2694743534808547,
+      "entry_gamma": 0.01272999125250512,
+      "entry_vega": 0.2587404103936953,
+      "entry_theta": -0.19000457241266433
+    },
+    {
+      "trade_index": 11,
+      "option_type": "put",
+      "strike": 295.0,
+      "expiry": "2024-05-03",
+      "quantity": -2,
+      "entry_price": 4.03829613,
+      "price": 4.03829613,
+      "entry_delta": -0.24224327760346956,
+      "entry_gamma": 0.0113567051238067,
+      "entry_vega": 0.24474778973731723,
+      "entry_theta": -0.18267751767168117
+    },
+    {
+      "trade_index": 13,
+      "option_type": "call",
+      "strike": 340.0,
+      "expiry": "2024-05-17",
+      "quantity": -2,
+      "entry_price": 4.60113984,
+      "price": 4.60113984,
+      "entry_delta": 0.25265863087512963,
+      "entry_gamma": 0.009794666551744645,
+      "entry_vega": 0.3160835464486824,
+      "entry_theta": -0.14818241413141386
+    },
+    {
+      "trade_index": 13,
+      "option_type": "put",
+      "strike": 295.0,
+      "expiry": "2024-05-17",
+      "quantity": -2,
+      "entry_price": 5.49755019,
+      "price": 5.49755019,
+      "entry_delta": -0.25246596873033467,
+      "entry_gamma": 0.00912082086167703,
+      "entry_vega": 0.31595665065569906,
+      "entry_theta": -0.15081884210344235
+    },
+    {
+      "trade_index": 15,
+      "option_type": "call",
+      "strike": 345.0,
+      "expiry": "2024-05-17",
+      "quantity": -2,
+      "entry_price": 5.22197775,
+      "price": 5.22197775,
+      "entry_delta": 0.2708642019814358,
+      "entry_gamma": 0.009793393145274722,
+      "entry_vega": 0.32924697882428555,
+      "entry_theta": -0.16365499750789372
+    },
+    {
+      "trade_index": 15,
+      "option_type": "put",
+      "strike": 300.0,
+      "expiry": "2024-05-17",
+      "quantity": -2,
+      "entry_price": 5.5764423,
+      "price": 5.5764423,
+      "entry_delta": -0.248518826657759,
+      "entry_gamma": 0.008739505067574507,
+      "entry_vega": 0.31494310203206616,
+      "entry_theta": -0.159446320939045
+    },
+    {
+      "trade_index": 17,
+      "option_type": "call",
+      "strike": 340.0,
+      "expiry": "2024-05-10",
+      "quantity": -1,
+      "entry_price": 4.21487847,
+      "price": 4.21487847,
+      "entry_delta": 0.2651419868041121,
+      "entry_gamma": 0.011773990110771671,
+      "entry_vega": 0.2746021762910896,
+      "entry_theta": -0.1860280988966692
+    },
+    {
+      "trade_index": 17,
+      "option_type": "put",
+      "strike": 305.0,
+      "expiry": "2024-05-10",
+      "quantity": -1,
+      "entry_price": 5.1241875299999995,
+      "price": 5.1241875299999995,
+      "entry_delta": -0.27525732575200423,
+      "entry_gamma": 0.011367847138319356,
+      "entry_vega": 0.2797891389787945,
+      "entry_theta": -0.19111920496985504
+    },
+    {
+      "trade_index": 20,
+      "option_type": "call",
+      "strike": 340.0,
+      "expiry": "2024-05-10",
+      "quantity": -1,
+      "entry_price": 3.7118287800000003,
+      "price": 3.7118287800000003,
+      "entry_delta": 0.25454694904771097,
+      "entry_gamma": 0.01244534906662582,
+      "entry_vega": 0.2640090787928521,
+      "entry_theta": -0.17587583568251625
+    },
+    {
+      "trade_index": 20,
+      "option_type": "put",
+      "strike": 305.0,
+      "expiry": "2024-05-10",
+      "quantity": -1,
+      "entry_price": 4.27797216,
+      "price": 4.27797216,
+      "entry_delta": -0.25462223892580305,
+      "entry_gamma": 0.011744832406707246,
+      "entry_vega": 0.2640499566319691,
+      "entry_theta": -0.17809170266736626
+    },
+    {
+      "trade_index": 25,
+      "option_type": "call",
+      "strike": 335.0,
+      "expiry": "2024-06-14",
+      "quantity": -2,
+      "entry_price": 4.65643431,
+      "price": 4.65643431,
+      "entry_delta": 0.2716338551081133,
+      "entry_gamma": 0.01109461333529464,
+      "entry_vega": 0.2672791358336525,
+      "entry_theta": -0.2101902991545737
+    },
+    {
+      "trade_index": 25,
+      "option_type": "put",
+      "strike": 295.0,
+      "expiry": "2024-06-14",
+      "quantity": -2,
+      "entry_price": 4.71762819,
+      "price": 4.71762819,
+      "entry_delta": -0.24349232450352204,
+      "entry_gamma": 0.009881332271263813,
+      "entry_vega": 0.25252103758655287,
+      "entry_theta": -0.20265534490469322
+    },
+    {
+      "trade_index": 26,
+      "option_type": "call",
+      "strike": 335.0,
+      "expiry": "2024-06-14",
+      "quantity": -2,
+      "entry_price": 3.3636635999999998,
+      "price": 3.3636635999999998,
+      "entry_delta": 0.226859197724108,
+      "entry_gamma": 0.01106608384782877,
+      "entry_vega": 0.23613112511052792,
+      "entry_theta": -0.1814467642878691
+    },
+    {
+      "trade_index": 26,
+      "option_type": "put",
+      "strike": 295.0,
+      "expiry": "2024-06-14",
+      "quantity": -2,
+      "entry_price": 4.43065689,
+      "price": 4.43065689,
+      "entry_delta": -0.24986314270208787,
+      "entry_gamma": 0.01099209387116697,
+      "entry_vega": 0.24895603282767687,
+      "entry_theta": -0.19523575448229794
+    },
+    {
+      "trade_index": 27,
+      "option_type": "call",
+      "strike": 350.0,
+      "expiry": "2024-06-28",
+      "quantity": -2,
+      "entry_price": 4.40785917,
+      "price": 4.40785917,
+      "entry_delta": 0.23883337523384726,
+      "entry_gamma": 0.009214964513421024,
+      "entry_vega": 0.3140860460388996,
+      "entry_theta": -0.1481635048493079
+    },
+    {
+      "trade_index": 27,
+      "option_type": "put",
+      "strike": 300.0,
+      "expiry": "2024-06-28",
+      "quantity": -2,
+      "entry_price": 5.19088086,
+      "price": 5.19088086,
+      "entry_delta": -0.23506962003855336,
+      "entry_gamma": 0.008459619365409054,
+      "entry_vega": 0.31135752999689636,
+      "entry_theta": -0.1507510324898259
+    },
+    {
+      "trade_index": 28,
+      "option_type": "call",
+      "strike": 355.0,
+      "expiry": "2024-06-21",
+      "quantity": -2,
+      "entry_price": 3.8916108,
+      "price": 3.8916108,
+      "entry_delta": 0.2310606474887959,
+      "entry_gamma": 0.009867429559254062,
+      "entry_vega": 0.25718544985002945,
+      "entry_theta": -0.19896524882374642
+    },
+    {
+      "trade_index": 28,
+      "option_type": "put",
+      "strike": 310.0,
+      "expiry": "2024-06-21",
+      "quantity": -2,
+      "entry_price": 5.01769818,
+      "price": 5.01769818,
+      "entry_delta": -0.24887938237813373,
+      "entry_gamma": 0.00967102826707503,
+      "entry_vega": 0.26781518216560873,
+      "entry_theta": -0.21187403966777674
+    },
+    {
+      "trade_index": 31,
+      "option_type": "call",
+      "strike": 365.0,
+      "expiry": "2024-06-21",
+      "quantity": -2,
+      "entry_price": 4.34516544,
+      "price": 4.34516544,
+      "entry_delta": 0.24675898204225466,
+      "entry_gamma": 0.009982466050385639,
+      "entry_vega": 0.2697982691478264,
+      "entry_theta": -0.22050323800118096
+    },
+    {
+      "trade_index": 31,
+      "option_type": "put",
+      "strike": 320.0,
+      "expiry": "2024-06-21",
+      "quantity": -2,
+      "entry_price": 4.96240371,
+      "price": 4.96240371,
+      "entry_delta": -0.2425919717662938,
+      "entry_gamma": 0.009318454389481295,
+      "entry_vega": 0.26733653706153365,
+      "entry_theta": -0.22345537661780676
+    },
+    {
+      "trade_index": 32,
+      "option_type": "call",
+      "strike": 370.0,
+      "expiry": "2024-07-05",
+      "quantity": -2,
+      "entry_price": 5.36286366,
+      "price": 5.36286366,
+      "entry_delta": 0.24705485388619022,
+      "entry_gamma": 0.00801658100034205,
+      "entry_vega": 0.335886842750224,
+      "entry_theta": -0.17624734695201713
+    },
+    {
+      "trade_index": 32,
+      "option_type": "put",
+      "strike": 315.0,
+      "expiry": "2024-07-05",
+      "quantity": -2,
+      "entry_price": 6.71982795,
+      "price": 6.71982795,
+      "entry_delta": -0.2534572082472786,
+      "entry_gamma": 0.007571728598669917,
+      "entry_vega": 0.3404709499238637,
+      "entry_theta": -0.1829290396287776
+    },
+    {
+      "trade_index": 33,
+      "option_type": "call",
+      "strike": 375.0,
+      "expiry": "2024-07-05",
+      "quantity": -2,
+      "entry_price": 5.217378210000001,
+      "price": 5.217378210000001,
+      "entry_delta": 0.24831740179288145,
+      "entry_gamma": 0.008342682127229854,
+      "entry_vega": 0.33844976365360957,
+      "entry_theta": -0.17528807562382243
+    },
+    {
+      "trade_index": 33,
+      "option_type": "put",
+      "strike": 320.0,
+      "expiry": "2024-07-05",
+      "quantity": -2,
+      "entry_price": 5.8904109,
+      "price": 5.8904109,
+      "entry_delta": -0.23598563684682924,
+      "entry_gamma": 0.007533055940698071,
+      "entry_vega": 0.3292370100184081,
+      "entry_theta": -0.17521593555777118
+    },
+    {
+      "trade_index": 36,
+      "option_type": "call",
+      "strike": 380.0,
+      "expiry": "2024-06-28",
+      "quantity": -1,
+      "entry_price": 5.334266520000001,
+      "price": 5.334266520000001,
+      "entry_delta": 0.27145566088455253,
+      "entry_gamma": 0.009669126947423308,
+      "entry_vega": 0.3028230752978529,
+      "entry_theta": -0.24096170284566462
+    },
+    {
+      "trade_index": 36,
+      "option_type": "put",
+      "strike": 335.0,
+      "expiry": "2024-06-28",
+      "quantity": -1,
+      "entry_price": 5.64363558,
+      "price": 5.64363558,
+      "entry_delta": -0.2515176374911836,
+      "entry_gamma": 0.00878087771365706,
+      "entry_vega": 0.2911953481314324,
+      "entry_theta": -0.23605625204435504
+    },
+    {
+      "trade_index": 44,
+      "option_type": "call",
+      "strike": 385.0,
+      "expiry": "2024-07-05",
+      "quantity": -1,
+      "entry_price": 3.9186081,
+      "price": 3.9186081,
+      "entry_delta": 0.22970292617082516,
+      "entry_gamma": 0.009724348703491119,
+      "entry_vega": 0.2794490196774923,
+      "entry_theta": -0.20085190027693406
+    },
+    {
+      "trade_index": 44,
+      "option_type": "put",
+      "strike": 340.0,
+      "expiry": "2024-07-05",
+      "quantity": -1,
+      "entry_price": 5.22117783,
+      "price": 5.22117783,
+      "entry_delta": -0.25517833908975923,
+      "entry_gamma": 0.00969985769457061,
+      "entry_vega": 0.29583255927098145,
+      "entry_theta": -0.21649935902994352
+    }
+  ],
+  "warnings": [
+    "Synthetic option-chain data; results are not live trading performance.",
+    "Black-Scholes approximation does not model American early exercise."
+  ]
+}
