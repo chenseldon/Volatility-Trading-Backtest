@@ -38,7 +38,7 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [tool.pytest.ini_options]
-addopts = "-ra --strict-markers"
+addopts = "-ra --strict-markers --basetemp=.pytest_tmp"
 testpaths = ["tests"]
 
 [tool.coverage.run]
@@ -56,4 +56,3 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
-
