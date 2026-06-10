@@ -7,6 +7,7 @@ import { MetricsStrip } from './components/MetricsStrip'
 import { ParameterDrawer } from './components/ParameterDrawer'
 import { RiskPanel } from './components/RiskPanel'
 import { Sidebar } from './components/Sidebar'
+import type { NavigationItem } from './components/Sidebar'
 import { sampleResult } from './sampleData'
 import type { BacktestForm, BacktestResult } from './types'
 import './styles.css'
@@ -41,6 +42,42 @@ export default function App() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [error, setError] = useState('')
   const [datasetName, setDatasetName] = useState('Synthetic (regime model)')
+  const [activeNavigation, setActiveNavigation] = useState<NavigationItem>('Overview')
+  const [dataTab, setDataTab] = useState('Positions')
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id)
+    if (element && typeof element.scrollIntoView === 'function') {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
+  const handleNavigation = (item: NavigationItem) => {
+    setActiveNavigation(item)
+    if (item === 'Strategies' || item === 'Settings') {
+      setDrawerOpen(true)
+      return
+    }
+    if (item === 'Positions' || item === 'Trade Log') {
+      setDataTab(item === 'Positions' ? 'Positions' : 'Trades')
+      scrollTo('activity')
+      return
+    }
+    const target = {
+      Overview: 'overview',
+      Backtests: 'backtest-controls',
+      Results: 'results',
+      Data: 'data-source-control',
+    }[item]
+    if (target) scrollTo(target)
+  }
+
+  const handleDataTabChange = (tab: string) => {
+    setDataTab(tab)
+    if (tab === 'Positions') setActiveNavigation('Positions')
+    if (tab === 'Trades') setActiveNavigation('Trade Log')
+  }
 
   const handleRun = async () => {
     if (form.startDate >= form.endDate) {
@@ -91,8 +128,13 @@ export default function App() {
       : `Imported CSV: ${datasetName}`
 
   return (
-    <main className="app-shell">
-      <Sidebar />
+    <main className={sidebarCollapsed ? 'app-shell sidebar-collapsed' : 'app-shell'}>
+      <Sidebar
+        active={activeNavigation}
+        collapsed={sidebarCollapsed}
+        onNavigate={handleNavigation}
+        onToggleCollapsed={() => setSidebarCollapsed((current) => !current)}
+      />
       <div className="workspace">
         <CommandBar
           form={form}
@@ -101,16 +143,23 @@ export default function App() {
           datasetName={datasetName}
           onUpload={handleUpload}
           onRun={handleRun}
-          onParameters={() => setDrawerOpen(true)}
+          onParameters={() => {
+            setActiveNavigation('Settings')
+            setDrawerOpen(true)
+          }}
         />
         {error ? <div className="error-banner">{error}</div> : null}
         <div className="content-grid">
           <div className="analysis-column">
-            <MetricsStrip metrics={result.metrics} />
-            <Suspense fallback={<div className="chart-loading">Loading analytics...</div>}>
-              <Charts result={result} />
-            </Suspense>
-            <DataTabs result={result} />
+            <div id="overview"><MetricsStrip metrics={result.metrics} /></div>
+            <div id="results">
+              <Suspense fallback={<div className="chart-loading">Loading analytics...</div>}>
+                <Charts result={result} />
+              </Suspense>
+            </div>
+            <div id="activity">
+              <DataTabs result={result} tab={dataTab} onTabChange={handleDataTabChange} />
+            </div>
           </div>
           <RiskPanel result={result} />
         </div>

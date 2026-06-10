@@ -1,15 +1,18 @@
-import { useState } from 'react'
-
 import type { BacktestResult } from '../types'
 
-export function DataTabs({ result }: { result: BacktestResult }) {
-  const [tab, setTab] = useState('Positions')
+type Props = {
+  result: BacktestResult
+  tab: string
+  onTabChange: (tab: string) => void
+}
+
+export function DataTabs({ result, tab, onTabChange }: Props) {
   const tabs = ['Positions', 'Trades', 'Comparison', 'Assumptions']
   const sourceLabel =
     result.data_source === 'synthetic' ? 'Synthetic option-chain data' : 'Imported option-chain CSV'
   return (
     <section className="data-panel">
-      <div className="tabs">{tabs.map((name) => <button className={tab === name ? 'active' : ''} onClick={() => setTab(name)} key={name}>{name}</button>)}</div>
+      <div className="tabs">{tabs.map((name) => <button className={tab === name ? 'active' : ''} onClick={() => onTabChange(name)} key={name}>{name}</button>)}</div>
       {tab === 'Positions' && <table><thead><tr><th>Type</th><th>Expiry</th><th>Strike</th><th>Qty</th><th>Entry</th></tr></thead><tbody>
         {result.legs.slice(-6).map((leg, index) => <tr key={`${String(leg.strike)}-${index}`}><td>{String(leg.option_type).toUpperCase()}</td><td>{String(leg.expiry)}</td><td>{String(leg.strike)}</td><td className={Number(leg.quantity) < 0 ? 'negative' : 'positive'}>{String(leg.quantity)}</td><td>{Number(leg.entry_price).toFixed(2)}</td></tr>)}
       </tbody></table>}

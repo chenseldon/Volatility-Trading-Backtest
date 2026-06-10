@@ -51,3 +51,31 @@ test('uploads a CSV dataset through the command bar', async ({ page }) => {
 
   await expect(page.getByText('Imported CSV: edge-chain.csv (1 rows)')).toBeVisible()
 })
+
+test('desktop sidebar navigation is interactive', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'edge-desktop', 'The mobile layout hides the sidebar.')
+  await page.goto('/')
+  const navigation = page.getByLabel('Primary navigation')
+
+  await navigation.getByRole('button', { name: 'Strategies' }).click()
+  await expect(page.getByRole('dialog', { name: 'Backtest parameters' })).toBeVisible()
+  await page.getByRole('button', { name: 'Close parameters' }).click()
+
+  for (const item of ['Backtests', 'Results', 'Positions', 'Data']) {
+    await navigation.getByRole('button', { name: item }).click()
+    await expect(navigation.getByRole('button', { name: item })).toHaveAttribute(
+      'aria-current',
+      'page',
+    )
+  }
+
+  await navigation.getByRole('button', { name: 'Trade Log' }).click()
+  await expect(page.getByRole('columnheader', { name: 'P/L' })).toBeVisible()
+
+  await navigation.getByRole('button', { name: 'Settings' }).click()
+  await expect(page.getByRole('dialog', { name: 'Backtest parameters' })).toBeVisible()
+  await page.getByRole('button', { name: 'Close parameters' }).click()
+
+  await page.getByRole('button', { name: 'Collapse sidebar' }).click()
+  await expect(page.getByRole('button', { name: 'Expand sidebar' })).toBeVisible()
+})

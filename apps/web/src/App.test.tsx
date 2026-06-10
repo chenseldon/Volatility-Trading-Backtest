@@ -101,4 +101,33 @@ describe('App', () => {
     ).toBeInTheDocument()
     expect(request).not.toHaveBeenCalled()
   })
+
+  it('wires the sidebar to strategy settings and trade activity', async () => {
+    const user = userEvent.setup()
+
+    render(<App />)
+    await user.click(screen.getByRole('button', { name: 'Strategies' }))
+    expect(screen.getByRole('dialog', { name: 'Backtest parameters' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Strategies' })).toHaveAttribute(
+      'aria-current',
+      'page',
+    )
+
+    await user.click(screen.getByRole('button', { name: 'Close parameters' }))
+    await user.click(screen.getByRole('button', { name: 'Trade Log' }))
+    expect(screen.getByRole('columnheader', { name: 'P/L' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Trade Log' })).toHaveAttribute(
+      'aria-current',
+      'page',
+    )
+  })
+
+  it('collapses and expands the sidebar', async () => {
+    const user = userEvent.setup()
+
+    render(<App />)
+    await user.click(screen.getByRole('button', { name: 'Collapse sidebar' }))
+    expect(screen.getByRole('button', { name: 'Expand sidebar' })).toBeInTheDocument()
+    expect(document.querySelector('.app-shell')).toHaveClass('sidebar-collapsed')
+  })
 })

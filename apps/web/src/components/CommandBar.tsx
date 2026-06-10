@@ -22,7 +22,7 @@ export function CommandBar({
   onParameters,
 }: Props) {
   return (
-    <header className="command-bar">
+    <header className="command-bar" id="backtest-controls">
       <label className="control ticker">
         <span>Ticker</span>
         <select><option>SPY</option></select>
@@ -58,7 +58,7 @@ export function CommandBar({
           <option value="bear_put_spread">Bear Put Spread</option>
         </select>
       </label>
-      <label className="control source-control">
+      <label className="control source-control" id="data-source-control">
         <span>Data source</span>
         <span className="source-picker">
           <select
