@@ -11,6 +11,7 @@ from volbacktest.factors import compute_volatility_factors
 from volbacktest.models import BacktestConfig, BacktestResult, StrategyName
 from volbacktest.performance import calculate_performance
 from volbacktest.pricing import black_scholes
+from volbacktest.risk import position_size, reg_t_margin
 from volbacktest.strategy import select_legs
 
 CONTRACT_MULTIPLIER = 100
@@ -25,6 +26,7 @@ class Position:
     entry_cashflow: float
     entry_cost_basis: float
     commission: float
+    margin: float
     hedge_shares: float = 0.0
     hedge_pnl: float = 0.0
     previous_spot: float = 0.0
@@ -100,28 +102,51 @@ def _open_position(
     config: BacktestConfig,
     signal_date: pd.Timestamp,
     signal: str,
-) -> tuple[Position, list[dict[str, Any]]]:
+) -> tuple[Position | None, list[dict[str, Any]]]:
     legs = select_legs(day_chain, config.strategy)
-    cashflow = 0.0
-    records = []
-    commission = 0.0
+    per_contract: list[dict[str, Any]] = []
     for _, leg in legs.iterrows():
         quantity = int(leg["quantity"])
         price = _execution_price(leg, quantity, True, config.risk.slippage_bps)
-        leg_cashflow = -quantity * price * CONTRACT_MULTIPLIER
-        cashflow += leg_cashflow
-        commission += abs(quantity) * config.risk.commission_per_contract
-        records.append(
+        per_contract.append(
             {
                 "option_type": leg["option_type"],
                 "strike": float(leg["strike"]),
                 "expiry": pd.Timestamp(leg["expiry"]).date().isoformat(),
                 "quantity": quantity,
                 "entry_price": price,
+                "price": price,
             }
         )
-    cashflow -= commission
     spot = float(day_chain["underlying_price"].iloc[0])
+    margin_per_contract = reg_t_margin(config.strategy.name, per_contract, spot)
+    entry_cashflow_per_contract = sum(
+        -int(leg["quantity"]) * float(leg["entry_price"]) * CONTRACT_MULTIPLIER
+        for leg in per_contract
+    )
+    if config.strategy.name in {
+        StrategyName.SHORT_STRADDLE,
+        StrategyName.SHORT_STRANGLE,
+    }:
+        risk_per_contract = margin_per_contract * 0.25
+    else:
+        risk_per_contract = max(abs(entry_cashflow_per_contract), margin_per_contract)
+    contracts = position_size(config.risk, risk_per_contract, margin_per_contract)
+    if contracts == 0:
+        return None, []
+
+    legs = legs.copy()
+    legs["quantity"] *= contracts
+    records = []
+    cashflow = 0.0
+    commission = 0.0
+    for leg in per_contract:
+        quantity = int(leg["quantity"]) * contracts
+        price = float(leg["entry_price"])
+        cashflow += -quantity * price * CONTRACT_MULTIPLIER
+        commission += abs(quantity) * config.risk.commission_per_contract
+        records.append({**leg, "quantity": quantity})
+    cashflow -= commission
     position = Position(
         opened=pd.Timestamp(day_chain["date"].iloc[0]),
         signal_date=signal_date,
@@ -130,6 +155,7 @@ def _open_position(
         entry_cashflow=cashflow,
         entry_cost_basis=max(abs(cashflow), 1.0),
         commission=commission,
+        margin=margin_per_contract * contracts,
         previous_spot=spot,
     )
     return position, records
@@ -266,23 +292,25 @@ def run_backtest(chain: pd.DataFrame, config: BacktestConfig) -> BacktestResult:
             signal = str(signal_row["signal"])
             if _strategy_accepts_signal(config.strategy.name, signal):
                 signal_date = pd.Timestamp(signal_row["date"])
-                position, opened_legs = _open_position(day_chain, config, signal_date, signal)
-                trade_index = len(trades)
-                for leg in opened_legs:
-                    leg_records.append({"trade_index": trade_index, **leg})
-                trades.append(
-                    {
-                        "date": day.date().isoformat(),
-                        "event": "open",
-                        "strategy": config.strategy.name.value,
-                        "signal": signal,
-                        "signal_date": signal_date.date().isoformat(),
-                        "pnl": 0.0,
-                    }
-                )
-                unrealized, delta, vega, exit_cashflow, _ = _mark_position(
-                    position, day_chain, config
-                )
+                opened, opened_legs = _open_position(day_chain, config, signal_date, signal)
+                if opened is not None:
+                    position = opened
+                    trade_index = len(trades)
+                    for leg in opened_legs:
+                        leg_records.append({"trade_index": trade_index, **leg})
+                    trades.append(
+                        {
+                            "date": day.date().isoformat(),
+                            "event": "open",
+                            "strategy": config.strategy.name.value,
+                            "signal": signal,
+                            "signal_date": signal_date.date().isoformat(),
+                            "pnl": 0.0,
+                        }
+                    )
+                    unrealized, delta, vega, exit_cashflow, _ = _mark_position(
+                        position, day_chain, config
+                    )
 
         if position is not None and config.strategy.delta_hedge:
             position.hedge_shares = -delta
@@ -297,7 +325,7 @@ def run_backtest(chain: pd.DataFrame, config: BacktestConfig) -> BacktestResult:
                 "date": day.date().isoformat(),
                 "delta": net_delta,
                 "vega": vega,
-                "margin_used": max(-exit_cashflow, 0.0),
+                "margin_used": position.margin if position is not None else 0.0,
                 "open_positions": int(position is not None),
             }
         )
