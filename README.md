@@ -27,6 +27,23 @@
 
 ### 快速开始（Windows / Quant1.0）
 
+最简单的方法：在项目根目录双击 `start.bat`。它会使用 `Quant1.0` 启动后端和前端，
+等待服务就绪并自动打开浏览器。停止时双击 `stop.bat`。
+
+PowerShell 一行启动：
+
+```powershell
+.\start.bat
+```
+
+一行停止：
+
+```powershell
+.\stop.bat
+```
+
+首次启动若缺少依赖，启动器会自动安装。也可以手动安装：
+
 ```powershell
 E:\anaconda\envs\Quant1.0\python.exe -m pip install -e ".[dev]"
 cd apps\web
